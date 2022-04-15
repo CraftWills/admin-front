@@ -1,0 +1,132 @@
+<section class="theme-shadow  rounded-3xl h-full mx-5 my-2">
+    <div class="flex justify-between items-center py-5 px-4">
+        <div class="flex items-center">
+           <p class="gbold text-md min-w-[70px]">Gold Plan - User List</p>
+        </div>
+    </div>
+    
+    <table class="user-mgmt-table">
+    <thead>
+        <th class="table-radio-td">
+            <div class="inline-flex items-center">
+                <input id="radio1" type="radio" name="radio" class="hidden" />
+                <label for="radio1" class="flex items-center cursor-pointer">
+                 <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+                </label>
+            </div>
+        </th>
+        <th>Name</th>
+        <th>Email Address</th>
+        <th>Subscription Date</th>
+        <th>Expiry Date</th>
+        <th>Subscribed Plan</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="table-radio-td">
+                <div class="inline-flex items-center">
+                    <input id="radio1" type="radio" name="radio" class="hidden" />
+                    <label for="radio1" class="flex items-center cursor-pointer">
+                     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+                    </label>
+                </div>
+            </td>
+            <td class="inline-flex items-center">
+                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
+                 Hussain Ali
+            </td>
+            <td>hussainali@gmail.com</td>
+            <td>01-01-2020</td>
+            <td>01-01-2020</td>
+            <td>Tuesday 8:30 AM</td>
+            <td class="flex items-center">
+                <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
+                <i class="fa fa-trash table-icon mr-2"></i>
+                <i class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
+    
+            </td>
+        </tr>
+        <tr>
+            <td class="table-radio-td">
+                <div class="inline-flex items-center">
+                    <input id="radio1" type="radio" name="radio" class="hidden" />
+                    <label for="radio1" class="flex items-center cursor-pointer">
+                     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+                    </label>
+                </div>
+            </td>
+            <td class="inline-flex items-center">
+                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
+                 Hussain Ali
+            </td>
+            <td>hussainali@gmail.com</td>
+            <td>01-01-2020</td>
+            <td>01-01-2020</td>
+            <td>Tuesday 8:30 AM</td>
+            <td class="flex items-center">
+                <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
+                <i class="fa fa-trash table-icon mr-2"></i>
+                <i class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
+    
+            </td>
+        </tr>
+        <tr>
+            <td class="table-radio-td">
+                <div class="inline-flex items-center">
+                    <input id="radio1" type="radio" name="radio" class="hidden" />
+                    <label for="radio1" class="flex items-center cursor-pointer">
+                     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+                    </label>
+                </div>
+            </td>
+            <td class="inline-flex items-center">
+                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
+                 Hussain Ali
+            </td>
+            <td>hussainali@gmail.com</td>
+            <td>01-01-2020</td>
+            <td>01-01-2020</td>
+            <td>Tuesday 8:30 AM</td>
+            <td class="flex items-center">
+                <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
+                <i class="fa fa-trash table-icon mr-2"></i>
+                <i class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
+    
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    
+    
+    
+    <!-- invite modal starts -->
+    
+    <input type="checkbox" id="my-modal-3" class="modal-toggle">
+    <div class="modal">
+      <div class="modal-box relative p-7">
+        <label for="my-modal-3" class="text-xs text-grey cursor-pointer absolute right-4 top-4">close</label>
+        <h3 class="text-xl gbold">Invite New User</h3>
+        <div class="w-full mt-5">
+            <input type="text" placeholder="Name" class="input input-bordered rounded-xl mb-4 w-full">
+            <input type="text" placeholder="Email" class="input input-bordered rounded-xl mb-4 w-full">
+            <select class="select w-full input-bordered rounded-xl mb-4">
+                <option disabled selected>Subscription Plan</option>
+                <option>Subscribed User</option>
+                <option>Trial User</option>
+            </select>
+            <select class="select w-full input-bordered rounded-xl mb-4">
+                <option disabled selected>Subscription Plan Duration</option>
+                <option>Subscribed User</option>
+                <option>Trial User</option>
+              </select>
+    
+              <button for="my-modal-3" class="theme-red rounded-xl px-8 py-3 cursor-pointer text-white text-xs mr-3">
+                Add New User
+            </button>
+        </div>
+      </div>
+    </div>
+    
+    
+    </section>

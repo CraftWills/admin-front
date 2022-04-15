@@ -1,0 +1,15 @@
+<div class="w-full flex flex-col">
+  <div
+    (clickOutside)="closeSidebar()"
+    id="sidebar"
+    class="lg:w-1/6 lg:block sidebar absolute inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition duration-200 ease-in-out"
+  >
+    <app-sidebar (toggleSidebarEvent)="closeSidebar()"></app-sidebar>
+  </div>
+  <div class="w-5/6 ml-auto flex flex-col">
+    <app-header></app-header>
+    <div class="w-[100%] h-[89vh] overflow-auto">
+    <router-outlet></router-outlet>
+</div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+
+.sidebar-shadow{
+    box-shadow: 0px 3px 9px #00000029;
+}
+.side-bar{
+    p{
+        font-family: 'GilroySemi';
+        color: #979797;
+        cursor: pointer;
+    }
+    i{
+
+        color: #979797;
+        cursor: pointer;
+    }
+}
+.sidebar-active{
+    p{
+    color: black;
+}
+i{
+    color: black;
+}
+}
+
+.subscription-sidebar-menu{
+    padding: 0 !important;
+    min-height: 1rem !important;
+}
+.subscription-menu-collapse-div{
+    padding: 0 0 0px 43px;
+    p{
+        padding: 10px 0 5px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+.active {
+    span {
+        opacity: 1;
+    }
+    color: black;
+}
+.sales-active {
+    color: black;
+}
+.sales-active ~ .sub-menu {
+    display: flex;
+}
+.sub-menu-active {
+    color: black;
+}
+.sales-active::before {
+    background-color: black;
+    height: max-content;
+}
+.sub-menu {
+    span {
+        opacity: 1;
+    }
+}
+.primary-sales-active {
+    p{
+
+        color: black;
+    }
+}
+.primary-active {
+    span {
+        opacity: 1;
+    }
+    color: #FFFFFF;
+}
+.primary-sales-active ~ .sub-menu {
+    display: flex;
+}
+.primary-sub-menu-active {
+    color: black;
+    font-family: 'GilroySemi';
+}
+.primary-sales-active::before {
+    background-color: #FFFFFF;
+    height: max-content;
+}

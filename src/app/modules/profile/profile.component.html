@@ -1,0 +1,99 @@
+<section class="theme-shadow h-full  rounded-3xl my-2 mx-5 py-5 px-5">
+    <div class="w-1/2">
+        <p class="gbold text-lg min-w-[70px]">Profile Picture</p>
+        <div class="relative w-[fit-content]">
+            <img class="rounded-full w-28 h-28 my-3" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
+            <div class="file-input">
+                <input
+                type="file"
+                name="file-input"
+                id="file-input"
+                class="file-input__input"
+                />
+                <label class="file-input__label" for="file-input">
+                <i class="fa-solid fa-pen"></i>
+                    </label
+                >
+            </div>
+        </div>
+        <div class="flex items-center justify-between">
+            <p class="gbold text-lg min-w-[70px]">Personal Information</p>
+            <div class="flex">
+                <i class="fa fa-check w-6 h-6 flex items-center justify-center rounded-full bg-red-400 text-white text-xs mr-2"></i>
+                <i class="fa fa-times w-6 h-6 flex items-center justify-center rounded-full border bg-white border-red-500 text-black text-xs mr-2"></i>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-4">
+            <div>
+                <label class="text-sm gsemi text-gray-500">First Name</label>
+                <input type="text" placeholder="" class="input w-full mt-3 max-w-xs bg-lightred">
+            </div>
+            <div>
+                <label class="text-sm gsemi text-gray-500">Last Name</label>
+                <input type="text" placeholder="" class="input w-full mt-3 max-w-xs bg-lightred">
+            </div>
+            <div>
+                <label class="text-sm gsemi text-gray-500">Gender</label>
+                <div class="grid grid-cols-2 mt-3">
+                    <div class="flex items-center">
+                        <div class="inline-flex items-center mr-3">
+                            <input id="radio11" type="radio" name="radio" class="hidden" />
+                            <label for="radio11" class="flex items-center cursor-pointer">
+                             <span class="w-4 h-4 inline-block mr-1 rounded-full border border-red-500 bg-white"></span>
+                            </label>
+                        </div>
+                        <p class="text-xs gbold">
+                            Male
+                        </p>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="inline-flex items-center mr-3">
+                            <input id="radio12" type="radio" name="radio" class="hidden" />
+                            <label for="radio12" class="flex items-center cursor-pointer">
+                             <span class="w-4 h-4 inline-block mr-1 rounded-full border border-red-500 bg-white"></span>
+                            </label>
+                        </div>
+                        <p class="text-xs gbold">
+                            Female
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-4">
+            <p class="gbold text-lg min-w-[70px]">Email Address</p>
+            <div class="flex">
+                <i class="fa fa-pen w-6 h-6 flex items-center justify-center rounded-full border bg-white border-red-500 text-black text-xs mr-2"></i>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-1">
+            <div>
+                <input type="text" placeholder="" class="input w-full mt-3 max-w-xs bg-lightred">
+            </div>
+            <div>
+              <!-- remains empty -->
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-4">
+            <p class="gbold text-lg min-w-[70px]">Password</p>
+            <div class="flex">
+                <i class="fa fa-pen w-6 h-6 flex items-center justify-center rounded-full border bg-white border-red-500 text-black text-xs mr-2"></i>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-1">
+            <div>
+                <input type="password" placeholder="" class="input w-full mt-3 max-w-xs bg-lightred">
+            </div>
+            <div>
+              <!-- remains empty -->
+            </div>
+        </div>
+    </div>
+    <button class="w-36 py-3 mt-6 bg-red-400 rounded-xl text-xs text-white">Change Password</button>
+
+    </section>
