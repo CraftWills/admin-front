@@ -1,0 +1,22 @@
+.main[dir = 'rtl'] {
+    .menu-active > .dot {
+        display: block;
+        width: 7px;
+        height: 7px;
+        background-color: #0b4463;
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        top:50%;
+        transform: translatey(-50%);
+        z-index: 1;
+    }
+    
+    .menu-active > span {
+     display: inline;
+     position: absolute;
+     left: -0px;
+     top:-20%;
+     transform: rotateY(180deg)
+    }
+}

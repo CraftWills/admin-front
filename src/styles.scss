@@ -1,0 +1,419 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$admin-craftwill-primary: mat.define-palette(mat.$indigo-palette);
+$admin-craftwill-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$admin-craftwill-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$admin-craftwill-theme: mat.define-light-theme((
+  color: (
+    primary: $admin-craftwill-primary,
+    accent: $admin-craftwill-accent,
+    warn: $admin-craftwill-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($admin-craftwill-theme);
+
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '~ngx-toastr/toastr';
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@font-face {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Gilroy'), url('./assets/fonts/Gilroy/gilroy-medium.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'GilroySemi';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Gilroy'), url('./assets/fonts/Gilroy/gilroy-semi-bold.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'GilroyBold';
+    font-style: normal;
+    font-weight: bolder;
+    src: local('Gilroy'), url('./assets/fonts/Gilroy/gilroy-bold.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Gilroy-Regular';
+    src: local('Gilroy'), url('./assets/fonts/Gilroy/gilroy-regular.ttf') format('truetype');
+  }
+  $dark-blue: #0C4D71;
+$dark-blue-2: #0b4463;
+*{
+  font-family: 'Gilroy';
+}
+  .bg{
+      background-color: #FF6782;
+  }
+  .text-red{
+    color: #ff6782 !important;
+
+  }
+  .bg-light{
+      background-color: #ffedf0 !important;
+  }
+  .gbold{
+      font-family: 'GilroyBold';
+  }
+  .gsemi{
+      font-family: 'GilroySemi';
+  }
+  .gregular{
+    font-family: 'Gilroy-Regular';
+  }
+  .gmedium{
+    font-family: 'Gilroy';
+  }
+  .wrap-icon{
+    background-color: #ffe1e6;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 8px;
+  }
+  // .wrap-icon>svg{
+  //   // height: 1.5rem !important;
+  //   // width: 1.5rem !important;
+  // }
+  .card{
+    box-shadow: 0px 0px 20px #00000014;
+    border-radius: 20px;
+
+  }
+  .input-text{
+    border: 1px solid hsl(0, 0%, 76%);
+    border-radius: 10px;
+    padding: 7px 9px;
+    outline: none;
+    &:focus{
+      outline: none;
+    }
+  }
+  .input-field{
+      background-color: #f7f7f7;
+      width: 100%;
+      padding-left: 1rem/* 16px */;
+    padding-right: 1rem/* 16px */;
+    padding-top: 0.5rem/* 8px */;
+    padding-bottom: 0.5rem/* 8px */;
+    font-family: 'GilroySemi';
+    border-radius: 10px;
+    --tw-border-opacity: 1;
+    border-color: rgb(221 221 221 / var(--tw-border-opacity));
+    outline-color: #000;
+  }
+  .form-group {
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    font-family: "Gilroy";
+  }
+  .input-group1 {
+    display: inline-block;
+    width: 100%;
+  
+    .radio_image {
+      cursor: pointer;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+    .input_label {
+      font-weight: lighter;
+      color: #8d8d8d;
+      margin-bottom: 0.1rem;
+    }
+  }
+  .authinput {
+    width: 100%;
+    background: rgb(247, 247, 247);
+    border-radius: 22px;
+   
+    font-size: 0.8rem;
+    padding: 20px;
+    
+  
+    height: calc(1.5em + 0.75rem + 2px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  
+  }
+  .authinput:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  // ::placeholder {
+  //   font-weight: 500;
+  //   font-family: 'GilroySemi';
+  // }
+  .errors {
+    font-size: 12px;
+    font-family: 'GilroySemi';
+  }
+  .theme-shadow{
+    box-shadow: 0px 0px 10px #00000014;
+  }
+  .theme-red{
+    background-color: #FE6782;
+  }
+  .bg-lightred{
+    background-color: #FFEFF2;
+  }
+  .text-active{
+    color: #0A4260;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+*::-webkit-scrollbar-track {
+    border-radius: 10px;
+    /* background: rgba(0, 0, 0, 0.1); */
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+*::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.9);
+}
+.ng-select{
+  width: inherit !important;
+}
+.custom-selector .ng-select-container {
+  // background: #f7f7f7;
+  font-weight: 400;
+  width: inherit !important;
+}
+
+.custom-selector .ng-dropdown-panel {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 0 0 10px 10px;
+  outline: none;
+  border: none;
+}
+.custom-selector .ng-dropdown-panel .ng-dropdown-panel-items {
+padding: 10px 5px 10px 5px;
+  border-radius: 0 0 10px 10px;
+  background-color: #fff;
+}
+.custom-selector .ng-dropdown-panel .ng-dropdown-panel-items div {
+ width: 100%;
+
+ font-size: 'GilroySemi';
+ background-color: #fff;
+ font-weight: 500;
+ :hover{
+   border-radius: 10px;
+   color: #000;
+  background: rgba(255, 239, 242, 1) !important;
+ }
+}
+.custom-selector .ng-dropdown-panel .ng-dropdown-panel-items div .ng-option-selected{
+ width: 100%;
+font-weight: 400;
+ border-radius: 10px;
+ color: #000;
+ background-color: rgba(255, 239, 242, 1);
+ margin: 5px 0px;
+ :hover{
+   border-radius: 10px;
+   color: #000;
+  background: rgba(255, 239, 242, 1) !important;
+ }
+}
+.custom-selector .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked{
+ width: 100%;
+ border-radius: 10px;
+ color: #000;
+ background-color: rgba(255, 239, 242, 1);
+ margin: 5px 0px;
+ :hover{
+   border-radius: 10px;
+   color: #000;
+  background: rgba(255, 239, 242, 1) !important;
+ }
+}
+.custom-selector .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+  background: rgba(255, 239, 242, 1) !important;
+  color: #000;
+  font-weight: 400;
+  border-radius: 10px;
+  // margin: 5px 0px;
+}
+.custom-selector.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked .ng-option-label{
+font-weight: 400;
+color:#000;
+}
+.profile .ng-select-container {
+  background: #fff;
+  outline: none;
+border: none;
+border-radius: 10px !important;
+}
+.admin-profile .ng-select-container {
+  background: #ffedf0 !important;
+  outline: none;
+border: none;
+border-radius: 10px !important;
+}
+.profile.ng-select.ng-select-opened>.ng-select-container {
+  
+  background: #fff;
+}
+.profile.ng-select .ng-select-opened.ng-select-bottom>.ng-select-container {
+  
+  background: #fff !important;
+}
+.profile.ng-select.ng-select-disabled>.ng-select-container{
+  background-color: #fff;
+  cursor:not-allowed;
+}
+@media only screen and (max-width: 640px) {
+  .profile.ng-select.ng-select-disabled>.ng-select-container{
+    background-color: #fff;
+    margin-left: -12px;
+    cursor:not-allowed;
+  }
+}
+.profile.ng-select.ng-select-single .ng-select-container{
+  height: 40px;
+  height: 40px;
+  border: 1px solid rgba(193, 193, 193, 1);
+  width: inherit !important;
+
+}
+.admin-profile.ng-select.ng-select-single .ng-select-container{
+  height: 40px;
+  height: 40px;
+  border:none !important;
+  width: inherit !important;
+
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked .ng-option-label {
+  
+  font-weight: 400 !important;
+}
+
+
+// scroll
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #efb4be;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    display: none;
+  }
+
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ff6782;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: '';
+ 
+  width: 12px;
+  height: 12px;
+  background: #ff6782;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  transition: all 0.2s ease;
+}
+[type="radio"]:disabled + label:after,
+[type="radio"]:disabled + label:after {
+  background: #ffc4cf;
+}
+[type="radio"]:disabled + label:before,
+[type="radio"]:disabled + label:before {
+  border: 1px solid #ffc4cf;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+[type="radio"]:disabled +label {
+cursor: not-allowed;
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

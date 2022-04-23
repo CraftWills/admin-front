@@ -1,0 +1,107 @@
+<div class="flex justify-center w-full flex-row">
+    <div class="w-full sm:w-1/3 flex flex-col p-8">
+      <div class="font-[GilroyBold] text-2xl">
+          Craft<span class="text-red font-[GilroyBold]">Wills.</span>
+        </div>
+        <div class="flex flex-col w-full m-auto">
+            <div class="text-3xl font-[GilroySemi] text-left whitespace-nowrap">
+                Welcome to Craftwills
+              </div>
+              <div class="text-base my-4 opacity-60">
+                Please enter you email and password to log in.
+              </div>
+              <form method="POST" [formGroup]="userLogin">
+                <div class="form-group justify-center mx-auto">
+                  <div class="input-group1">
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      placeholder="E-mail address"
+                      formControlName="email"
+                      class="form-control input-field bg-light "
+                    />
+                  </div>
+          
+                  <div class="text-red-500 errors mx-2">
+                    {{ formErrors.email }}
+                  </div>
+                </div>
+                <div class="form-group justify-center mx-auto">
+                  <div class="input-group1">
+                    <div class="flex flex-row relative w-full">
+                      <input
+                        #x
+                        type="password"
+                        autocomplete="new-password"
+                        placeholder="Password"
+                        formControlName="password"
+                        class="form-control input-field bg-light"
+                      />
+                      <div
+                        class="absolute right-2 top-[25%] text-[#8d8d8d]"
+                        (click)="x.type = x.type == 'password' ? 'text' : 'password'"
+                      >
+                        <svg
+                          *ngIf="x.type === 'text'"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                        <svg
+                          *ngIf="x.type === 'password'"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="text-red-500 errors mx-2">
+                    {{ formErrors.password }}
+                  </div>
+                </div>
+                <div class="button justify-center sm:w-1/2">
+                  <app-button
+                    value="Sign In"
+                    (myMethod)="submit()"
+                    id="submitButtonId"
+                    [arrow]="true"
+                    padding="px-5 py-3 sm:py-2"
+                    backgroundColor="bg-[#000] sm:bg-[#FF6782]"
+                    borderRadius="rounded-[5px] sm:rounded-[10px]"
+                  ></app-button>
+                </div>
+              </form>
+              <div class="text-left font-[GilroySemi] my-2">
+                <a routerLink="/forgetPassword">Forgot Password?</a>
+              </div>
+        </div>
+   
+  </div>
+  <div class="hidden sm:flex w-2/3 bg h-[100vh]"></div>
+</div>

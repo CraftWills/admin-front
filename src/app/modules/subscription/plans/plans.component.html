@@ -1,0 +1,40 @@
+<section class="theme-shadow h-full rounded-3xl my-2 mx-5 py-5 px-5">
+    <p class="gbold text-sm mb-3">All Plans</p>
+
+    <div class="grid grid-cols-1 gap-4">
+        <div class="bg-lightred rounded-2xl p-4" *ngFor="let item of plansListDisplay">
+            <div class="grid grid-cols-5 gap-4">
+             <div class="flex items-center">
+                <p class="gsemi text-2xl">{{item.planName}}</p>
+             </div>
+             <div class="flex items-center">
+                <p class="gsemi text-2xl">${{item.price}}/<span class="text-sm text-gray-500 gbold">month</span></p>
+             </div>
+             <div class="flex items-center">
+                <p class="gmedium text-xs text-gray-500">{{item.planDescription}}</p>
+             </div>
+             <div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="gbold text-xs flex items-center">
+                        <i class="fa-solid fa-check bg-gray-200 flex items-center justify-center rounded-full h-6 w-6 mr-3" ></i> 
+                        Feature 1
+                    </div>
+                    <div class="gbold text-xs flex items-center">
+                        <i class="fa-solid fa-check bg-gray-200 flex items-center justify-center rounded-full h-6 w-6 mr-3" ></i> 
+                        Feature 2
+                    </div>
+                    <div class="gbold text-xs flex items-center">
+                        <i class="fa-solid fa-check bg-gray-200 flex items-center justify-center rounded-full h-6 w-6 mr-3" ></i> 
+                        Feature 3
+                    </div>
+                </div>
+
+             </div>
+             <div class="text-center">
+                 <button class="rounded-xl px-5 py-2 bg-white border-red-400 text-red-400 gsemi text-xs border" (click)="onViewPerformance(item)" routerLink='/home/subscription/performance' >View Performance</button>
+             </div>
+            </div>
+        </div>
+
+    </div>
+</section>

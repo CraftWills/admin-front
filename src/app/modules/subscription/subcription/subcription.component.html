@@ -1,0 +1,130 @@
+<section class="theme-shadow  rounded-3xl my-2 mx-5 py-5 px-5">
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <p class="gbold text-sm mb-3">Total Subscribers</p>
+            <div class="grid grid-cols-2 gap-4">
+             <div class="bg-lightred rounded-2xl p-4 px-5 h-[155px] flex items-center">
+                 <div>
+                     <p class="gbold text-sm">Total <br/> Subscribed Users</p>
+                     <p class="gbold text-3xl mt-2">32,335</p>
+                </div>
+             </div>
+             <div class="bg-lightred rounded-2xl p-4 px-5 h-[155px] flex  flex-row items-center justify-between relative">
+            
+                 <div>
+                     
+                     <p class="gbold text-sm">Total <br/> Subscribed Users</p>
+                     <p class="gbold text-3xl mt-2">32,335</p>
+                    </div>
+                    <div class="w-[100px]">
+                
+                      <ng-select
+                      class="custom-selector profile w-full " 
+                      placeholder="Select"
+                      [items]="['Gold', 'Gold', 'Gold']"
+                      ></ng-select>
+                   </div>
+            
+            </div>
+            </div>
+        </div>
+        <div>
+            <p class="gbold text-sm mb-3">Subscription Earnings</p>
+            <div class="grid grid-cols-2 gap-4">
+             <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+                     <p class="gbold text-xs mr-10">Total <br/>Earning</p>
+                     <p class="gbold text-2xl">$300.45</p>
+             </div>
+             <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+                    <p class="gbold text-xs mr-10">This <br/> Month</p>
+                    <p class="gbold text-2xl">$300.45</p>
+            </div>
+            <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+                <p class="gbold text-xs mr-10">This <br/>Week</p>
+                <p class="gbold text-2xl">$300.45</p>
+            </div>
+             <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+                    <p class="gbold text-xs mr-10">Lifetime <br/> Earning</p>
+                    <p class="gbold text-2xl">$300.45</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="theme-shadow  rounded-3xl my-4 mx-5">
+    <div class="flex justify-between items-center  py-5 px-4">
+           <p class="gbold text-sm min-w-[70px]">Subscription History</p>
+        <div class="flex items-center">
+            <label  (click)="filterHandler('active')" [ngClass]="{'bg-white border-red-400 theme-red text-white': filtertoggle==='active'}" class="border rounded-xl px-6 py-2.5 cursor-pointer  text-xs mr-3">
+                Active 
+            </label>
+            <label (click)="filterHandler('expire')" [ngClass]="{'bg-white border-red-400 theme-red text-white': filtertoggle==='expire'}" class="border rounded-xl px-6 py-2.5 cursor-pointer text-xs mr-3">
+                Expired
+            </label>
+
+         </div>
+    </div>
+    <table class="subs-history-table">
+    <thead>
+        <th class="table-radio-td"></th>
+        <th>Name & Email Address</th>
+        <th>Subscription Plan</th>
+        <th>Subscription Date</th>
+        <th>Expiry Date</th>
+        <th>Price</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let item of subscriptionHistoryDisplay;let i=index">
+            <td class="table-radio-td">
+                <img class="rounded-full w-10 h-10 mr-2" [src]="item?.image" alt="Avatar" />
+            </td>
+            <td>
+                <p class="gbold text-sm">{{item?.name}}</p>
+                <p class="gmedium text-xs">{{item?.email}}</p>
+            </td>
+            <td>{{item?.subPlan}}</td>
+            <td>{{item?.subDate}}</td>
+            <td>{{item?.expDate}}</td>
+            <td>{{item?.price}}</td>
+            <td class=" gbold" [ngClass]="{'text-red-500': item?.status!=='Active','text-green-500':item?.status ==='Active'}">
+                {{item?.status}}
+            </td>
+        </tr>
+
+    </tbody>
+    </table>
+    
+    
+    
+    <!-- invite modal starts -->
+    
+    <input type="checkbox" id="my-modal-3" class="modal-toggle">
+    <div class="modal">
+      <div class="modal-box relative p-7">
+        <label for="my-modal-3" class="text-xs text-grey cursor-pointer absolute right-4 top-4">close</label>
+        <h3 class="text-xl gbold">Invite New User</h3>
+        <div class="w-full mt-5">
+            <input type="text" placeholder="Name" class="input input-bordered rounded-xl mb-4 w-full">
+            <input type="text" placeholder="Email" class="input input-bordered rounded-xl mb-4 w-full">
+            <select class="select w-full input-bordered rounded-xl mb-4">
+                <option disabled selected>Subscription Plan</option>
+                <option>Subscribed User</option>
+                <option>Trial User</option>
+            </select>
+            <select class="select w-full input-bordered rounded-xl mb-4">
+                <option disabled selected>Subscription Plan Duration</option>
+                <option>Subscribed User</option>
+                <option>Trial User</option>
+              </select>
+    
+              <button for="my-modal-3" class="theme-red rounded-xl px-8 py-3 cursor-pointer text-white text-xs mr-3">
+                Add New User
+            </button>
+        </div>
+      </div>
+    </div>
+    
+    
+</section>
