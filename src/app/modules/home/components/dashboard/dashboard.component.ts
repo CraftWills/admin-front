@@ -23,208 +23,9 @@ export class DashboardComponent implements OnInit {
   totalWill=0;
   totalActiveWills=0;
   currentSubscribedUsers=0;
-  tableKeys = ['name', 'email', 'subDate', 'expDate', 'lastLogin'];
+  tableKeys = ['name', 'email', 'subDate', 'expDate'];
 
-  userData = [
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      Name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-  ];
+  userData = [];
   classes = [
     'w-1/5 break-all hidden md:flex text-sm',
     'w-1/5 break-all hidden md:flex text-sm',
@@ -237,29 +38,14 @@ export class DashboardComponent implements OnInit {
     'Email Address',
     'Subscription Date',
     'Expiry Date',
-    'Last Login',
   ];
   chart1: any = [];
   ngOnInit(): void {
-    this._userServ.getUsers().subscribe(
+    this._subscriptionServe.getSubscriptionUser().subscribe(
       (result) => {
         console.log(result);
-        
+        this.userData = result ;
         this.spinner.stop();
-        // this.userData = result.data.map((items, i) => {
-        //   console.log(items);
-
-        //   return {
-        //     Name: 'Husain Ali',
-        //     email: 'alisdhfiohsidof@.com',
-        //     subDate: '10-10-2020',
-        //     expDate: '10-10-2020',
-        //     lastLogin: 'Tuesday 8:30 A.M',
-        //     // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-        //     image: '../../../../../assets/Image/male.png',
-        //     isDeletable: true,
-        //   };
-        // });
       },
       (err) => {
         this.spinner.stop();

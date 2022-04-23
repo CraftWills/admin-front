@@ -40,7 +40,7 @@
     <tbody>
         <tr *ngFor="let item of allSubscribersDisplay;let i=index">
             <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="item?.image" alt="Avatar" />
+                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../../assets/Image/male.png'" alt="Avatar" />
             </td>
             <td>
                 <p class="gbold text-sm">{{item?.name}}</p>
@@ -49,9 +49,10 @@
             <td>{{item?.subPlan}}</td>
             <td>{{item?.subDate}}</td>
             <td>{{item?.expDate}}</td>
-            <td>{{item?.price}}</td>
-            <td class=" gbold" [ngClass]="{'text-red-500': item?.status!=='Active','text-green-500':item?.status ==='Active'}">
-                {{item?.status}}
+            <td>${{item?.price}}</td>
+            <td class=" gbold" 
+            [ngClass]="item?.status !== true ? 'text-red-500' : 'text-green-500'">
+                {{item?.status !== true ? 'Inactive' : 'Active'}}
             </td>
         </tr>
     </tbody>

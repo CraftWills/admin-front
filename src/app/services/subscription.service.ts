@@ -29,4 +29,7 @@ export class SubscriptionService {
   getPlansList(){
     return this._httpServe.get(environment.serverUrl + 'subscription/getPlanDetails');
   }
+  getSubscriptionStats(){
+    return this._httpServe.get(environment.serverUrl + 'admin/totalSubscribedUser');
+  }
 }

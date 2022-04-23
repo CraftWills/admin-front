@@ -69,8 +69,23 @@ $dark-blue-2: #0b4463;
 *{
   font-family: 'Gilroy';
 }
+body{
+  background-color: white;
+}
+td{
+  color: black;
+}
+input{
+  color: black;
+}
+.fa{
+  color: black;
+}
   .bg{
       background-color: #FF6782;
+  }
+  p{
+    color: black;
   }
   .text-red{
     color: #ff6782 !important;
@@ -417,3 +432,11 @@ cursor: not-allowed;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+div{
+  color: black;
+}
+
+input::placeholder{
+  font-size: 14px;
+}

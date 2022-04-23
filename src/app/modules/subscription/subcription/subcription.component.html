@@ -6,23 +6,23 @@
              <div class="bg-lightred rounded-2xl p-4 px-5 h-[155px] flex items-center">
                  <div>
                      <p class="gbold text-sm">Total <br/> Subscribed Users</p>
-                     <p class="gbold text-3xl mt-2">32,335</p>
+                     <p class="gbold text-3xl mt-2">${{subscriptionStats?.totalSub}}</p>
                 </div>
              </div>
              <div class="bg-lightred rounded-2xl p-4 px-5 h-[155px] flex  flex-row items-center justify-between relative">
             
                  <div>
                      
-                     <p class="gbold text-sm">Total <br/> Subscribed Users</p>
-                     <p class="gbold text-3xl mt-2">32,335</p>
+                     <p class="gbold text-sm">Total <br/> Free-Plan Users</p>
+                     <p class="gbold text-3xl mt-2">${{subscriptionStats?.totalFreePlan}}</p>
                     </div>
                     <div class="w-[100px]">
                 
-                      <ng-select
+                      <!-- <ng-select
                       class="custom-selector profile w-full " 
                       placeholder="Select"
                       [items]="['Gold', 'Gold', 'Gold']"
-                      ></ng-select>
+                      ></ng-select> -->
                    </div>
             
             </div>
@@ -33,19 +33,19 @@
             <div class="grid grid-cols-2 gap-4">
              <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
                      <p class="gbold text-xs mr-10">Total <br/>Earning</p>
-                     <p class="gbold text-2xl">$300.45</p>
+                     <p class="gbold text-2xl">${{subscriptionStats?.totalEarning}}</p>
              </div>
              <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
                     <p class="gbold text-xs mr-10">This <br/> Month</p>
-                    <p class="gbold text-2xl">$300.45</p>
+                    <p class="gbold text-2xl">${{subscriptionStats?.totalMonthSub}}</p>
             </div>
             <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
                 <p class="gbold text-xs mr-10">This <br/>Week</p>
-                <p class="gbold text-2xl">$300.45</p>
+                <p class="gbold text-2xl">${{subscriptionStats?.thisWeekEarning}}</p>
             </div>
              <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
                     <p class="gbold text-xs mr-10">Lifetime <br/> Earning</p>
-                    <p class="gbold text-2xl">$300.45</p>
+                    <p class="gbold text-2xl">${{subscriptionStats?.lifeTimeEarning}}</p>
             </div>
             </div>
         </div>

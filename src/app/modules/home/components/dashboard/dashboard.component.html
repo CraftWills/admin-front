@@ -1,9 +1,9 @@
 <div class="block">
-  <div class="flex flex-row card h-100 m-5 box-border space-x-5 p-5">
-    <div class="p-4 flex flex-col w-3/4 space-y-3">
+  <div class="flex flex-row card h-100 m-3 space-x-5 p-0 py-2 shadow-none">
+    <div class="p-4 flex flex-col w-3/4 space-y-3 pt-0">
       <div class="card p-5 flex-col flex space-y-2">
         <div class="flex flex-row justify-between">
-          <div class="font-['GilroyBold'] text-lg">Subscribed Users</div>
+          <div class="font-['GilroyBold'] text-lg text-black">Subscribed Users</div>
           <div class="w-[150px]">
             <ng-select
               class="custom-selector profile w-full"
@@ -19,23 +19,23 @@
         </div>
       </div>
       <div class="card ">
-        <div class="font-['GilroyBold'] text-lg px-5 py-3">Users</div>
-        <app-table  [viewAction]="false" [actionToggle]="false" [tableHeadings]="tableHeadings" avtarType="image"  class="overflow-scroll max-h-[400px] sm:max-h-full sm:h-[45vh] " [tableData]="userData"
-    [keys]="tableKeys" [classes]="classes" emptyTableMessage="No Assets Found">
-  </app-table>
+        <div class="font-['GilroyBold'] text-lg px-5 py-3 text-black">Users</div>
+        <app-table  [viewAction]="false" [actionToggle]="false" [tableHeadings]="tableHeadings"  class="overflow-scroll max-h-[400px] sm:max-h-full sm:h-[45vh] " [tableData]="userData"
+        [keys]="tableKeys" [classes]="classes" emptyTableMessage="No Users Found">
+        </app-table>
       </div>
     </div>
     <div class="card p-4 w-1/4 space-y-4">
-      <div class="gsemi text-xl">Quick Statistics</div>
+      <div class="gsemi text-xl text-black">Quick Statistics</div>
       <div class="flex flex-col space-y-3">
         <div
           class="rounded-2xl p-2 flex flex-row bg-light justify-around items-center"
         >
           <div class="flex flex-col">
-            <div class="gsemi">Total</div>
-            <div class="gsemi">Will Created</div>
+            <div class="gsemi text-black">Total</div>
+            <div class="gsemi text-black">Will Created</div>
           </div>
-          <div class="gsemi text-lg">{{totalWill}}</div>
+          <div class="gsemi text-dark text-lg">{{totalWill}}</div>
         </div>
         <div
           class="rounded-2xl p-2 flex flex-row bg-light justify-around items-center"

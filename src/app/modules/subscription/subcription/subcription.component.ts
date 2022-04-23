@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubscriptionService } from 'src/app/services/subscription.service';
 
 @Component({
   selector: 'app-subcription',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubcriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _subscriptionServe: SubscriptionService) { }
+
   subscriptionHistoryDisplay=[];
   filtertoggle ='';
   subscriptionHistory = [
@@ -287,14 +289,27 @@ export class SubcriptionComponent implements OnInit {
       image: '../../../../../assets/Image/male.png',
     },
   ]
+  subscriptionStats 
+
+
   filterHandler(value){
     console.log(value);
     this.filtertoggle=value;
     this.subscriptionHistoryDisplay=[...this.subscriptionHistory];
     this.subscriptionHistoryDisplay =this.subscriptionHistory.filter((el)=>el.status.toLowerCase() === value) 
   }
+
+  getTabsdata(){
+    this._subscriptionServe.getSubscriptionStats().subscribe((result)=>{
+
+      this.subscriptionStats = result ;
+        console.log(this.subscriptionStats);
+    })
+  }
+
   ngOnInit(): void {
     this.subscriptionHistoryDisplay=[...this.subscriptionHistory];
+    this.getTabsdata() ;
   }
 
 }
