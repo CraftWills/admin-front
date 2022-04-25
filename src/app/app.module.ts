@@ -13,6 +13,11 @@ import { UserManagmentComponent } from './modules/user-managment/user-managment.
 import { PromocodesComponent } from './modules/promocodes/promocodes.component';
 import { DetailsComponent } from './modules/promocodes/details/details.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { SharedModule } from './shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { MatTooltipModule } from '@angular/material/tooltip';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "bgsColor": "red",
   "bgsOpacity": 0.5,
@@ -46,7 +51,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    UserManagmentComponent,
     PromocodesComponent,
     DetailsComponent,
     ProfileComponent
@@ -57,8 +61,14 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgxUiLoaderModule,
     HttpClientModule,
+    MatTooltipModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), 
+    NgSelectModule,
+    SharedModule,
+    FormsModule,
+    ImageCropperModule,
+    ReactiveFormsModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA ],
   providers: [

@@ -7,6 +7,8 @@ import { PlansComponent } from './plans/plans.component';
 import { AllSubscribersComponent } from './all-subscribers/all-subscribers.component';
 import { SubcriptionComponent } from './subcription/subcription.component';
 import { PerformanceComponent } from './plans/performance/performance.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { PerformanceComponent } from './plans/performance/performance.component'
   ],
   imports: [
     CommonModule,
-    SubscriptionRoutingModule
+    SubscriptionRoutingModule,
+    NgSelectModule,
+    SharedModule
   ]
 })
 export class SubscriptionModule { }

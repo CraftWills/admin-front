@@ -9,23 +9,23 @@ import { ResetComponent } from './components/reset/reset.component';
 const routes: Routes = [
   {
     path : "",
-    // canActivate:[AfterLoginGuard],
+    canActivate:[AfterLoginGuard],
     component : AuthComponent,
     children  : [
       {
         path : "",
-        // canActivate:[],
+        canActivate:[],
         redirectTo:"login",
       },
       {
         path : "login",
-        // canActivate:[AfterLoginGuard],
+        canActivate:[AfterLoginGuard],
         component: LoginComponent,
       },
 
       {
         path:'forgetPassword',
-        // canActivate:[AfterLoginGuard],
+        canActivate:[AfterLoginGuard],
         component:ForgetComponent,
       },
       {

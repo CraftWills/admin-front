@@ -13,6 +13,7 @@ import { ToastrService } from '../../services/toastr.service';
 })
 export class HeaderComponent implements OnInit {
   username: string = 'helloo';
+  email: string = 'helloo';
   imageSrc: string = '';
   defaultMale = '../../../../assets/Image/male.png';
   defaultFemale = '../../../../assets/Image/female.png';
@@ -33,6 +34,9 @@ export class HeaderComponent implements OnInit {
    .map(w => w[0].toUpperCase() + w.substring(1).toLowerCase())
    .join(' ');
     });
+    this._headerServ.email.subscribe((email) => {
+      this.email = email;
+    });
   }
   key = ['willType', 'date'];
   logout() {
@@ -47,8 +51,24 @@ export class HeaderComponent implements OnInit {
   routeToWill(){
     
   }
+   setImageHandler = (result) => {
+    if (!result?.profilePic) {
+      console.log(result);
+      
+      this.imageSrc = this.defaultMale;
+      this._headerServ.image.next(this.imageSrc);
+    } else if (
+      
+      result?.profilePic !== '' &&
+      result?.profilePic !== null
+      ) {
+        console.log(result);
+        this.imageSrc = `${environment.serverUrl}${result?.profilePic}`;
+        this._headerServ.image.next(this.imageSrc);
+    }
+  };
   ngOnInit(): void {
-    // this.spinner.start();
+    this.spinner.start();
     this.route.queryParams.subscribe(({ wid,re}) => {
       if (wid) {
         this.wid = wid;
@@ -59,10 +79,20 @@ export class HeaderComponent implements OnInit {
    
 
     this._headerServ.image.subscribe((image) => {
-      // this.imageSrc = image;
+      console.log(image);
+      
+      this.imageSrc = image;
     });
     
-    this.imageSrc = this.defaultMale;
+    this._userServ.getProfilePic().subscribe(
+      (result) => {
+        this.spinner.stop();
+      console.log(result);
+      this.setImageHandler(result)
 
+      },(err)=>{
+        this.spinner.stop();
+        this.toastr.message("Something Went Wrong!!!",false);
+          });
   }
 }

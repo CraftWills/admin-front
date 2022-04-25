@@ -1,8 +1,12 @@
 
 .sidebar-shadow{
-    box-shadow: 0px 3px 9px #00000029;
+    box-shadow: inset 0px -6px 10px 0 #00000029;
 }
 .side-bar{
+    height: fit-content;
+    padding: 8px 0 8px 9px;
+    /* background: #f9e7ea; */
+    border-radius: 5px 0 0 5px;
     p{
         font-family: 'GilroySemi';
         color: #979797;
@@ -13,13 +17,21 @@
         color: #979797;
         cursor: pointer;
     }
+    img{
+        opacity: 0.5;
+    }
 }
 .sidebar-active{
+    background-color: #f9e7ea;
+
     p{
     color: black;
 }
 i{
     color: black;
+}
+img{
+    opacity: 1;
 }
 }
 
@@ -88,4 +100,24 @@ i{
 .primary-sales-active::before {
     background-color: #FFFFFF;
     height: max-content;
+}
+.side-icon::after{
+content: '';
+height: 8px;
+width:8px;
+border-radius: 50%;
+background-color: #ff7d95;
+position: absolute;
+top: 0;
+bottom: 0;
+margin: auto;
+right: 1px;
+}
+.side-bar {
+    svg {
+        filter:drop-shadow(-1px 0px 3px rgba(0, 0, 0, 0.1));
+        
+      }
+}
+.bg-side{
 }

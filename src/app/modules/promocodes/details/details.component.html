@@ -2,43 +2,43 @@
     <div class="flex justify-between items-center">
         <p class="gbold text-lg min-w-[70px]">Promocode Details</p>
      <div class="flex items-center">
-        <label for="my-modal-3" class="bg-white border-red-400 border rounded-xl px-6 py-2.5 cursor-pointer text-black text-xs mr-3">
+        <label (click)="EditToggle=true" class="bg-hover bg-white border-red-400 border rounded-xl px-6 py-2.5 cursor-pointer text-black text-xs mr-3">
             Edit
         </label>
-         <label for="my-modal-3" class="theme-red rounded-xl px-6 py-2.5 cursor-pointer text-white text-xs mr-3">
+         <!-- <label for="my-modal-3" class="theme-red rounded-xl px-6 py-2.5 cursor-pointer text-white text-xs mr-3">
             Create Promocode
-         </label>
+         </label> -->
       </div>
  </div>
     <div class="grid grid-cols-5 gap-4 mt-4">
              <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                  <div>
-                     <p class="gbold text-sm">Discount Code</p>
-                     <p class="gbold text-xl mt-0">OFF10DOLLAR</p>
+                     <p class="gsemi text-sm">Discount Code</p>
+                     <p class="gbold text-base break-all mt-0">{{promoData?.discountPromocode}}</p>
                 </div>
              </div>
              <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Created On</p>
-                    <p class="gbold text-xl mt-0">22-11-2022</p>
+                    <p class="gsemi text-sm">Created On</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.createdOn}}</p>
                </div>
             </div>
             <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Expires On</p>
-                    <p class="gbold text-xl mt-0">22-11-2022</p>
+                    <p class="gsemi text-sm">Expires On</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.expireOn}}</p>
                </div>
             </div>
             <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Used</p>
-                    <p class="gbold text-xl mt-0">150 Times</p>
+                    <p class="gsemi text-sm">Used</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.usage}}</p>
                </div>
             </div>
             <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Total Discount Redeemed</p>
-                    <p class="gbold text-xl mt-0">$4000</p>
+                    <p class="gsemi text-sm">Total Discount Redeemed</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.discountValue}}</p>
                </div>
             </div>
 
@@ -49,14 +49,14 @@
     </div>
     <table class="subs-history-table">
     <thead>
-        <th class="table-radio-td">
+        <!-- <th class="table-radio-td">
             <div class="inline-flex items-center">
                 <input id="radio1" type="radio" name="radio" class="hidden" />
                 <label for="radio1" class="flex items-center cursor-pointer">
                  <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
                 </label>
             </div>
-        </th>
+        </th> -->
         <th>Name</th>
         <th>Email Address</th>
         <th>Subscription Plan</th>
@@ -65,25 +65,25 @@
         <th>Status</th>
     </thead>
     <tbody>
-        <tr>
-            <td class="table-radio-td">
+        <tr *ngFor="let item of promoUserList;let i=index">
+            <!-- <td class="table-radio-td">
                 <div class="inline-flex items-center">
                     <input id="radio1" type="radio" name="radio" class="hidden" />
                     <label for="radio1" class="flex items-center cursor-pointer">
                      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
                     </label>
                 </div>
-            </td>
+            </td> -->
             <td class="inline-flex items-center">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-                 Hussain Ali
+                <img class="rounded-full w-10 h-10 mr-2" [src]="item?.image"  alt="Avatar" />
+                 {{item?.name}}
             </td>
-            <td>hussainali@gmail.com</td>
-            <td>Gold</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td class="text-red-500 gbold">
-                Active
+            <td>{{item?.email}}</td>
+            <td>{{item?.subPlan}}</td>
+            <td>{{item?.subDate}}</td>
+            <td>{{item?.expDate}}</td>
+            <td class=" gbold" [ngClass]="{'text-red-500': item?.status!=='Active','text-green-500':item?.status ==='Active'}">
+                {{item?.status}}
             </td>
         </tr>
 
@@ -94,31 +94,138 @@
     
     <!-- invite modal starts -->
     
-    <input type="checkbox" id="my-modal-3" class="modal-toggle">
-    <div class="modal">
-      <div class="modal-box relative p-7">
-        <label for="my-modal-3" class="text-xs text-grey cursor-pointer absolute right-4 top-4">close</label>
-        <h3 class="text-xl gbold">Invite New User</h3>
-        <div class="w-full mt-5">
-            <input type="text" placeholder="Name" class="input input-bordered rounded-xl mb-4 w-full">
-            <input type="text" placeholder="Email" class="input input-bordered rounded-xl mb-4 w-full">
-            <select class="select w-full input-bordered rounded-xl mb-4">
-                <option disabled selected>Subscription Plan</option>
-                <option>Subscribed User</option>
-                <option>Trial User</option>
-            </select>
-            <select class="select w-full input-bordered rounded-xl mb-4">
-                <option disabled selected>Subscription Plan Duration</option>
-                <option>Subscribed User</option>
-                <option>Trial User</option>
-              </select>
-    
-              <button for="my-modal-3" class="theme-red rounded-xl px-8 py-3 cursor-pointer text-white text-xs mr-3">
-                Add New User
-            </button>
-        </div>
-      </div>
-    </div>
+    <app-modal [modalBody]='modalBodyCreatepromo' [showModal]="EditToggle">
+
+        <ng-template #modalBodyCreatepromo>
+            <div class="modal-invite  h-[90vh] overflow-auto">
+                <div class="modal-box-invite relative p-7">
+                    <form method="POST" [formGroup]="EditPromoForm">
+                    <div class="flex flex-row justify-between">
+                    <h3 class="text-xl gbold">Edit Promocode</h3>
+                    <div class="text-[#ff6782] cursor-pointer" (click)="EditToggle=false">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div> 
+                    </div> 
+                <div class="w-full mt-5">
+                    <p class="text-sm gsemi mt-4 mb-2">
+                        Discount Code
+                    </p>
+                    <input formControlName="discountPromocode" type="text" placeholder="OFF10DOLLAR" class="input-text w-full p-2">
+                    <div class="text-red-500 errors mx-2">
+                        {{ formErrors.discountPromocode }}
+                      </div>
+                    <p class="text-xs gmedium text-gray-500 mt-3">
+                        Customer will enter this promo code at checkout.
+                    </p>
+                    <div class="bg-gray-100 rounded-xl p-4 my-3">
+                        <p class="text-sm gsemi mb-2">
+                            Discount Code
+                        </p>
+                        <ng-select
+                        formControlName="discountType"
+                        class="custom-selector profile w-full " 
+                        placeholder="Select"
+                        [items]="['Subscription Plan', 'Subscribed User', 'Trial User']"
+                      ></ng-select>
+                      <div class="text-red-500 errors mx-2">
+                        {{ formErrors.discountType }}
+                      </div>
+                        <input formControlName="discountValue" type="text" placeholder="Discount Value" class="input-text w-full p-2 mt-2">
+                        <div class="text-red-500 errors mx-2">
+                            {{ formErrors.discountValue }}
+                          </div>
+                    </div>
+                    <div class="bg-gray-100 rounded-xl p-4 my-3">
+                        <p class="text-sm gsemi mb-2">
+                            Applies to
+                        </p>
+                        <div class="flex w-full mt-1 justify-evenly ml-0 items-center">
+                            <input
+                              type="radio"
+                              formControlName="appliesTo"
+                              value="entireOrder"
+                              id="test1"
+                              class="mx-1 radioCustom"
+                            />
+                            <label class="text-sm mx-1 mt-1" for="test1">
+                                Entire Order</label>
+                            <input
+                              type="radio"
+                              id="test2"
+                              formControlName="appliesTo"
+                              value="subscription"
+                              class="mx-1 radioCustom"
+                            />
+                            <label class="text-sm mx-1 mt-1" for="test2">Specific Subscription</label>
+                          </div>
+                    </div>
+                    <div class="bg-gray-100 rounded-xl p-4 my-3">
+                        <p class="text-sm gsemi mb-2">
+                            Expires When
+                        </p>
+                        <div class="grid grid-cols-2">
+                            <div class="flex flex-row w-full mt-1 ml-0 items-center">
+                                <input
+                                  type="radio"
+                                  formControlName="expireDateType"
+                                  value="Not expire"
+                                  id="test5"
+                                  class="mx-1 radioCustom"
+                                />
+                                <label class="text-sm mx-1 mt-1" for="test5">
+                                    No Expiry</label>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 mb-2">
+                            <div class="flex flex-row w-full mt-1 ml-0 items-center">
+                                <input
+                                  type="radio"
+                                  formControlName="expireDateType"
+                                  value="date"
+                                  id="test3"
+                                  class="mx-1 radioCustom"
+                                />
+                                <label class="text-sm mx-1 mt-1" for="test3">
+                                    Date</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input formControlName="expireOn" type="date" [min]="min_date"  placeholder="OFF10DOLLAR" class="input-text w-full p-2">
+                            </div>
+                        </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-xl p-4 my-3">
+                        <div class="grid grid-cols-2 mb-2">
+                            <div class="flex flex-row w-full mt-1  ml-0 items-center">
+                                <input
+                                  type="radio"
+                                  checked
+                                  value="usage"
+                                  class="mx-1 radioCustom"
+                                />
+                                <label class="text-sm mx-1 mt-1" >
+                                    Usage</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input formControlName="usage" type="text" placeholder="100 Redemptions" class="input-text w-full p-2">
+                                </div>
+                            </div>
+                            <div class="text-red-500 errors mx-2">
+                            {{ formErrors.usage }}
+                          </div>
+                        
+                    </div>
+            
+                      <button (click)="updatePromo()" class="theme-red rounded-xl px-8 py-3 cursor-pointer text-white text-xs mr-3">
+                        Save
+                    </button>
+                </div>
+            </form>
+              </div>
+              </div>
+        </ng-template>
+    </app-modal>
     
     
 </section>

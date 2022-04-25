@@ -1,19 +1,25 @@
-<div  class="flex flex-col p-6  h-screen sidebar-shadow">
+<div  class="flex flex-col py-6 pl-6  h-screen sidebar-shadow">
      <div class="font-[GilroyBold] text-2xl p-2">
         Craft<span class="text-red font-[GilroyBold]">Wills.</span>
       </div>
-      <div class="flex flex-col space-y-6 px-2 pb-2 pt-11">
+      <div class="flex flex-col  pl-2 pb-2 pt-11">
 
       
     <div class="flex flex-row space-x-3 items-center side-bar" routerLink="/home/dashboard" routerLinkActive="sidebar-active">
         <div><i class="fa-solid fa-home"></i></div>
         <p>Dashboard</p>
+        <div *ngIf="router.url==='/home/dashboard'" class="ml-auto w-fit side-icon absolute  right-[-2px]"><svg class="h-[69px] w-[18px] ml-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 5 24">
+            <path d="M 5 -3 C 5 -2 5 0 3 3 C 0 8 0 10 3 15 C 5 18 5 20 5 21" fill="#fff"/>
+          </svg></div>
     </div>
     <div class="flex flex-row space-x-3 items-center side-bar" routerLink="/home/user" routerLinkActive="sidebar-active">
-        <div><i class="fa-solid fa-home"></i></div>
+        <div><img src="../../../../assets/Icons/Users.svg"></div>
         <p>User Management</p>
+        <div *ngIf="router.url==='/home/user'" class="ml-auto w-fit side-icon absolute  right-[-2px]"><svg class="h-[69px] w-[18px] ml-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 5 24">
+            <path d="M 5 -3 C 5 -2 5 0 3 3 C 0 8 0 10 3 15 C 5 18 5 20 5 21" fill="#fff"/>
+          </svg></div>
     </div>
-    <div class="flex flex-row space-x-3 items-center side-bar">
+    <div class="flex flex-row space-x-3 items-center " >
         <!-- <div tabindex="0" class="collapse">
             <input type="checkbox" class="subscription-sidebar-menu"> 
             <div class="collapse-title flex flex-row space-x-3 items-center side-bar p-0 min-h-[1rem]">
@@ -26,11 +32,15 @@
               <p>All Subscribers</p>
             </div>
           </div> -->
-          <div class="py-1 inline-flex items-center">
-            <div class="flex flex-col">
-                <a routerLink='/home/subscription' [ngClass]="router.url.split('/')[2] === 'subscription' ? 'primary-sales-active' : ''" class="gsemi inline-flex items-center 2xl:text-base text-sm flex flex-row space-x-3 items-center side-bar">
-                    <div><i class="fa-solid fa-home"></i></div>
+          <div class="py-1 inline-flex items-center w-full">
+            <div class="flex flex-col w-full">
+                <a routerLink='/home/subscription'  routerLinkActive="sidebar-active" [ngClass]="router.url.split('/')[2] === 'subscription' ? 'primary-sales-active' : ''" class="gsemi inline-flex items-center 2xl:text-base text-sm flex flex-row space-x-3 items-center side-bar">
+                    <div><img src="../../../../assets/Icons/Subscriptions.svg"></div>
                     <p>Subscription</p>
+                    <div *ngIf="router.url.includes('/home/subscription')" class="ml-auto w-fit side-icon absolute  right-[-2px]"><svg class="h-[69px] w-[18px] ml-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 5 24">
+                        <path d="M 5 -3 C 5 -2 5 0 3 3 C 0 8 0 10 3 15 C 5 18 5 20 5 21" fill="#fff"/>
+                      </svg></div>
+                   
                 </a>
                 <div class="hidden sub-menu ms-3 ml-12 mt-2 items-center">
                     <div class="flex flex-col">
@@ -41,17 +51,23 @@
             </div>
         </div>
         </div>
-    <div class="flex flex-row space-x-3 items-center side-bar" routerLink="/home/promocodes" routerLinkActive="sidebar-active">
-        <div><i class="fa-solid fa-home"></i></div>
+    <div class="flex flex-row space-x-3 items-center side-bar" routerLink="/home/promocodes"  [ngClass]="{'sidebar-active': router.url.includes('/home/promocode')}">
+        <div><img src="../../../../assets/Icons/Promocodes.svg"></div>
         <p>Promocodes</p>
+        <div *ngIf="router.url.includes('/home/promocode')" class="ml-auto w-fit side-icon absolute  right-[-2px]"><svg class="h-[69px] w-[18px] ml-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 5 24">
+            <path d="M 5 -3 C 5 -2 5 0 3 3 C 0 8 0 10 3 15 C 5 18 5 20 5 21" fill="#fff"/>
+          </svg></div>
     </div>
-    <div class="border-b-2 border-[#0A4260]"></div>
-    <div class="flex flex-row space-x-3 items-center side-bar" routerLink="/home/profile" routerLinkActive="sidebar-active">
-        <div><i class="fa-solid fa-home"></i></div>
+    <div class="border-b-2 border-[#0A4260] my-4"></div>
+    <div class="flex flex-row space-x-3 items-center side-bar w-full" routerLink="/home/profile" routerLinkActive="sidebar-active">
+        <div><img src="../../../../assets/Icons/Profile.svg"></div>
         <p>Profile</p>
+        <div *ngIf="router.url==='/home/profile'" class="ml-auto w-fit side-icon absolute  right-[-2px]"><svg class="h-[69px] w-[18px] ml-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 5 24">
+            <path d="M 5 -3 C 5 -2 5 0 3 3 C 0 8 0 10 3 15 C 5 18 5 20 5 21" fill="#fff"/>
+          </svg></div>
     </div>
     <div class="flex flex-row space-x-3 items-center side-bar" (click)="logout()">
-        <div><i class="fa-solid fa-home"></i></div>
+        <div><img src="../../../../assets/Icons/Logout.svg"></div>
         <p>Logout</p>
     </div>
 

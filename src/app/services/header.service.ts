@@ -9,5 +9,6 @@ export class HeaderService {
   constructor() { }
   
   username=new BehaviorSubject("User Name");
+  email=new BehaviorSubject("");
   image=new BehaviorSubject('');
 }

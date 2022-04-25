@@ -7,14 +7,14 @@
     
     <table class="user-mgmt-table">
     <thead>
-        <th class="table-radio-td">
+        <!-- <th class="table-radio-td">
             <div class="inline-flex items-center">
                 <input id="radio1" type="radio" name="radio" class="hidden" />
                 <label for="radio1" class="flex items-center cursor-pointer">
                  <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
                 </label>
             </div>
-        </th>
+        </th> -->
         <th>Name</th>
         <th>Email Address</th>
         <th>Subscription Date</th>
@@ -23,74 +23,27 @@
         <th>Action</th>
     </thead>
     <tbody>
-        <tr>
-            <td class="table-radio-td">
+        <tr *ngFor="let item of userListPlans;let i=index">
+            <!-- <td class="table-radio-td">
                 <div class="inline-flex items-center">
                     <input id="radio1" type="radio" name="radio" class="hidden" />
                     <label for="radio1" class="flex items-center cursor-pointer">
                      <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
                     </label>
                 </div>
-            </td>
+            </td> -->
             <td class="inline-flex items-center">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-                 Hussain Ali
+                <img class="rounded-full w-10 h-10 mr-2" [src]="item?.image"  alt="Avatar" />
+                 {{item?.name}}
             </td>
-            <td>hussainali@gmail.com</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>Tuesday 8:30 AM</td>
+            <td>{{item?.email}}</td>
+            <td>{{item?.subDate}}</td>
+            <td>{{item?.expDate}}</td>
+            <td>{{item?.lastLogin}}</td>
             <td class="flex items-center">
                 <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
-                <i class="fa fa-trash table-icon mr-2"></i>
-                <i class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
-    
-            </td>
-        </tr>
-        <tr>
-            <td class="table-radio-td">
-                <div class="inline-flex items-center">
-                    <input id="radio1" type="radio" name="radio" class="hidden" />
-                    <label for="radio1" class="flex items-center cursor-pointer">
-                     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-                    </label>
-                </div>
-            </td>
-            <td class="inline-flex items-center">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-                 Hussain Ali
-            </td>
-            <td>hussainali@gmail.com</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>Tuesday 8:30 AM</td>
-            <td class="flex items-center">
-                <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
-                <i class="fa fa-trash table-icon mr-2"></i>
-                <i class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
-    
-            </td>
-        </tr>
-        <tr>
-            <td class="table-radio-td">
-                <div class="inline-flex items-center">
-                    <input id="radio1" type="radio" name="radio" class="hidden" />
-                    <label for="radio1" class="flex items-center cursor-pointer">
-                     <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-                    </label>
-                </div>
-            </td>
-            <td class="inline-flex items-center">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-                 Hussain Ali
-            </td>
-            <td>hussainali@gmail.com</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>Tuesday 8:30 AM</td>
-            <td class="flex items-center">
-                <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
-                <i class="fa fa-trash table-icon mr-2"></i>
+                <i (click)="selectDeletItem(item)"  mat-raised-button
+            matTooltip="Delete" class="fa fa-trash table-icon mr-2"></i>
                 <i class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
     
             </td>
@@ -130,3 +83,15 @@
     
     
     </section>
+    <app-modal [modalBody]='modalBodyp' [showModal]="deleteToggle">
+
+        <ng-template #modalBodyp>
+          <div class="flex flex-col justify-center p-3">
+            <div class="font-['GilroyBold'] py-5 text-center">Do You Really Want to Remove {{this.selectedItem?.name}}?</div>
+            <div class="flex flex-row w-full justify-between p-2 space-x-4">
+              <div class="py-3  hover:bg-[#fdb0bd] bg-[#ffedf0] rounded-lg cursor-pointer w-1/2 items-center text-center font-['GilroySemi']" (click)="remove()">Yes</div>
+              <div class="py-3  hover:bg-[#fdb0bd] bg-[#ffedf0] rounded-lg cursor-pointer w-1/2 items-center text-center font-['GilroySemi']" (click)="deleteToggle=false">No</div>
+            </div>
+          </div>
+        </ng-template>
+      </app-modal>

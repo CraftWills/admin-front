@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
         this.toastr.message(result.message, result.success);
         if (result.success === true) {
           localStorage.setItem('user', result.token);
-          this._router.navigate(['/home']);
+          this._router.navigate(['/home/dashboard']);
           this.userLogin.reset();
         }
       },

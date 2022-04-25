@@ -16,57 +16,62 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   {
     path:"",
-    // canActivate:[AuthGuard],
+    canActivate:[AuthGuard],
     component:HomeComponent,
     children:[
       {
+        path : "",
+        canActivate:[AuthGuard],
+        redirectTo:"dashboard",
+      },
+      {
         path:"dashboard",
-        // canActivate:[AuthGuard],
+        canActivate:[AuthGuard],
          component:DashboardComponent,
        },
       {
        path:"user",
-      //  canActivate:[AuthGuard],
+        canActivate:[AuthGuard],
         component:UserManagmentComponent,
       },
       {
         path:"promocodes",
-       //  canActivate:[AuthGuard],
+         canActivate:[AuthGuard],
          component:PromocodesComponent,
        },
        {
         path:"promocode-detail",
-       //  canActivate:[AuthGuard],
+         canActivate:[AuthGuard],
          component:DetailsComponent,
        },
        {
         path:"profile",
-       //  canActivate:[AuthGuard],
+         canActivate:[AuthGuard],
          component:ProfileComponent,
        },
       {
        path:"subscription",
-      //  canActivate:[AuthGuard],
+      canActivate:[AuthGuard],
         component:SubscriptionComponent,
         children: [
           {
             path:"",
-           //  canActivate:[AuthGuard],
+            canActivate:[AuthGuard],
              component:SubcriptionComponent,
            },
           {
             path:"plans",
-           //  canActivate:[AuthGuard],
+            canActivate:[AuthGuard],
              component:PlansComponent,
            },
            {
             path:"all-subscribers",
-           //  canActivate:[AuthGuard],
+            canActivate:[AuthGuard],
              component:AllSubscribersComponent,
            },
            {
             path:"performance",
-           //  canActivate:[AuthGuard],
+             canActivate:[AuthGuard],
              component:PerformanceComponent,
            },
         ]

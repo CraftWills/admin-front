@@ -24,6 +24,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     SidebarComponent,
+    ModalComponent,
     ButtonComponent,
     HeaderComponent,
     TableComponent,

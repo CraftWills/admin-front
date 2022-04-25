@@ -1,12 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-  <g id="Group_3976" data-name="Group 3976" transform="translate(-88 -179)">
-    <g id="Ellipse_57" data-name="Ellipse 57" transform="translate(88 179)" fill="#ff6782" stroke="#fff" stroke-width="1">
-      <circle cx="9" cy="9" r="9" stroke="none"/>
-      <circle cx="9" cy="9" r="8.5" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1292" data-name="Rectangle 1292" width="10" height="10" transform="translate(-0.481 -0.287)" stroke="red" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2794" data-name="Group 2794" transform="translate(0.457 0.262)">
+    <g id="Ellipse_30" data-name="Ellipse 30" transform="translate(-0.457 -0.262)" fill="#fff" stroke="#fd6782" stroke-width="1">
+      <circle cx="12" cy="12" r="12" stroke="none"/>
+      <circle cx="12" cy="12" r="11.5" fill="none"/>
     </g>
-    <g id="Group_3975" data-name="Group 3975">
-      <path id="Path_4256" data-name="Path 4256" d="M6666.492,2317.015a.986.986,0,0,1-.057.173,1.383,1.383,0,0,1-.184.281c-.173.188-.359.365-.54.545a.112.112,0,0,1-.021.017l-1.61-1.61c.2-.206.4-.421.608-.624a.686.686,0,0,1,.407-.173.612.612,0,0,0,.064-.015h.089a.259.259,0,0,0,.041.012.831.831,0,0,1,.536.264c.134.138.276.266.4.409a1.679,1.679,0,0,1,.2.3.961.961,0,0,1,.061.187Z" transform="translate(-6565.707 -2131.395)" fill="#fff"/>
-      <path id="Path_4257" data-name="Path 4257" d="M6524.339,2350.909l1.638,1.637-.053.055q-2.035,2.034-4.069,4.066a.386.386,0,0,1-.168.1c-.595.152-1.19.3-1.787.448a.166.166,0,0,1-.212-.21c.15-.608.3-1.216.456-1.823a.3.3,0,0,1,.082-.127l3.361-3.363.71-.711A.37.37,0,0,0,6524.339,2350.909Z" transform="translate(-6426.467 -2165.432)" fill="#fff"/>
+    <g id="Mask_Group_390" data-name="Mask Group 390" transform="translate(7.024 7.024)" clip-path="url(#clip-path)">
+      <g id="edit_3_" data-name="edit (3)">
+        <g id="Group_2793" data-name="Group 2793">
+          <g id="Group_2792" data-name="Group 2792">
+            <path id="Path_4074" data-name="Path 4074" d="M0,7.88V9.832H1.951L7.71,4.073,5.758,2.122Z" transform="translate(0 -0.466)"/>
+            <path id="Path_4075" data-name="Path 4075" d="M10.988,1.367,9.773.152a.521.521,0,0,0-.736,0L8.084,1.1l1.951,1.951.952-.952A.521.521,0,0,0,10.988,1.367Z" transform="translate(-1.775)"/>
+          </g>
+        </g>
+      </g>
     </g>
   </g>
 </svg>

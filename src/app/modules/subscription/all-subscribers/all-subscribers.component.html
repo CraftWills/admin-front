@@ -3,11 +3,30 @@
            <p class="gbold text-md min-w-[70px]">All Subscribers</p>
            <div class="flex items-center">
             <p class="gsemi text-sm min-w-[70px]">Sort By:</p>
-            <select class="select w-48 max-w-xs sort-by py-1.5 border-black rounded-xl">
+
+            <div class="w-[150px]">
+
+                <ng-select
+                (change)="onSorting($event)"
+                [searchable]="false"
+                class="custom-selector profile w-full " 
+                placeholder="Select"
+                >
+                  <ng-option  value="All">All</ng-option
+                  >
+                  <ng-option  value="free">free</ng-option
+                  >
+                  <ng-option  value="1 month">month</ng-option
+                  >
+                </ng-select>
+             </div>
+
+            
+            <!-- <select class="select w-48 max-w-xs sort-by py-1.5 border-black rounded-xl">
              <option disabled selected>Gold</option>
              <option>Subscribed User</option>
              <option>Trial User</option>
-           </select>
+           </select> -->
          </div>
     </div>
     <table class="subs-history-table">
@@ -21,100 +40,21 @@
         <th>Status</th>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let item of allSubscribersDisplay;let i=index">
             <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
+                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../../assets/Image/male.png'" alt="Avatar" />
             </td>
             <td>
-                <p class="gbold text-sm"> Hussain Ali</p>
-                <p class="gmedium text-xs"> eugenevyborov@gmail.com</p>
+                <p class="gbold text-sm">{{item?.name}}</p>
+                <p class="gmedium text-xs">{{item?.email}}</p>
             </td>
-            <td>Gold Subscription</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>$199.00</td>
-            <td class="text-active gbold">
-                Active
-            </td>
-        </tr>
-        <tr>
-            <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-            </td>
-            <td>
-                <p class="gbold text-sm"> Hussain Ali</p>
-                <p class="gmedium text-xs"> eugenevyborov@gmail.com</p>
-            </td>
-            <td>Gold Subscription</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>$199.00</td>
-            <td class="text-red-700 gbold">
-                Expired
-            </td>
-        </tr>
-        <tr>
-            <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-            </td>
-            <td>
-                <p class="gbold text-sm"> Hussain Ali</p>
-                <p class="gmedium text-xs"> eugenevyborov@gmail.com</p>
-            </td>
-            <td>Gold Subscription</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>$199.00</td>
-            <td class="text-active gbold">
-                Active
-            </td>
-        </tr>
-        <tr>
-            <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-            </td>
-            <td>
-                <p class="gbold text-sm"> Hussain Ali</p>
-                <p class="gmedium text-xs"> eugenevyborov@gmail.com</p>
-            </td>
-            <td>Gold Subscription</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>$199.00</td>
-            <td class="text-active gbold">
-                Active
-            </td>
-        </tr>
-        <tr>
-            <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-            </td>
-            <td>
-                <p class="gbold text-sm"> Hussain Ali</p>
-                <p class="gmedium text-xs"> eugenevyborov@gmail.com</p>
-            </td>
-            <td>Gold Subscription</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>$199.00</td>
-            <td class="text-active gbold">
-                Active
-            </td>
-        </tr>
-        <tr>
-            <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../assets/Image/male.png'" alt="Avatar" />
-            </td>
-            <td>
-                <p class="gbold text-sm"> Hussain Ali</p>
-                <p class="gmedium text-xs"> eugenevyborov@gmail.com</p>
-            </td>
-            <td>Gold Subscription</td>
-            <td>01-01-2020</td>
-            <td>01-01-2020</td>
-            <td>$199.00</td>
-            <td class="text-active gbold">
-                Active
+            <td>{{item?.subPlan}}</td>
+            <td>{{item?.subDate}}</td>
+            <td>{{item?.expDate}}</td>
+            <td>${{item?.price}}</td>
+            <td class=" gbold" 
+            [ngClass]="item?.status !== true ? 'text-red-500' : 'text-green-500'">
+                {{item?.status !== true ? 'Inactive' : 'Active'}}
             </td>
         </tr>
     </tbody>
