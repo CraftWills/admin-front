@@ -32,4 +32,7 @@ export class SubscriptionService {
   getSubscriptionStats(){
     return this._httpServe.get(environment.serverUrl + 'admin/totalSubscribedUser');
   }
+  deleteUser(id){
+    return this._httpServe.delete(environment.serverUrl + `admin/deleteUser/${id}`);
+  }
 }

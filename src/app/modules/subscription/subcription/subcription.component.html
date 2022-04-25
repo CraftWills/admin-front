@@ -56,10 +56,10 @@
     <div class="flex justify-between items-center  py-5 px-4">
            <p class="gbold text-sm min-w-[70px]">Subscription History</p>
         <div class="flex items-center">
-            <label  (click)="filterHandler('active')" [ngClass]="{'bg-white border-red-400 theme-red text-white': filtertoggle==='active'}" class="border rounded-xl px-6 py-2.5 cursor-pointer  text-xs mr-3">
+            <label  (click)="filterHandler(true)" [ngClass]="{'bg-white border-red-400 theme-red text-white': filtertoggle===true}" class="bg-hover border rounded-xl px-6 py-2.5 cursor-pointer  text-xs mr-3">
                 Active 
             </label>
-            <label (click)="filterHandler('expire')" [ngClass]="{'bg-white border-red-400 theme-red text-white': filtertoggle==='expire'}" class="border rounded-xl px-6 py-2.5 cursor-pointer text-xs mr-3">
+            <label (click)="filterHandler(false)" [ngClass]="{'bg-white border-red-400 theme-red text-white': filtertoggle===false}" class="bg-hover border rounded-xl px-6 py-2.5 cursor-pointer text-xs mr-3">
                 Expired
             </label>
 
@@ -78,7 +78,7 @@
     <tbody>
         <tr  *ngFor="let item of subscriptionHistoryDisplay;let i=index">
             <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="item?.image" alt="Avatar" />
+                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../../assets/Image/male.png'" alt="Avatar" />
             </td>
             <td>
                 <p class="gbold text-sm">{{item?.name}}</p>
@@ -88,8 +88,8 @@
             <td>{{item?.subDate}}</td>
             <td>{{item?.expDate}}</td>
             <td>{{item?.price}}</td>
-            <td class=" gbold" [ngClass]="{'text-red-500': item?.status!=='Active','text-green-500':item?.status ==='Active'}">
-                {{item?.status}}
+            <td class=" gbold" [ngClass]="{'text-red-500': item?.status!==true,'text-green-500':item?.status ===true}">
+                {{item?.status !== true ? 'Inactive' : 'Active'}}
             </td>
         </tr>
 

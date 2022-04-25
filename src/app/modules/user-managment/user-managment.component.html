@@ -34,11 +34,11 @@
     <th>Email Address</th>
     <th>Subscription Date</th>
     <th>Expiry Date</th>
-    <th>Last Login</th>
-    <th>Action</th>
+    <th >Last Login</th>
+    <th class="text-center">Action</th>
 </thead>
 <tbody>
-    <tr *ngFor="let item of userManagmentData;let i=index">
+    <tr *ngFor="let item of userManagmentDataDisplay;let i=index">
         <!-- <td class="table-radio-td">
             <div class="inline-flex items-center">
                 <input id="radio1" type="radio" name="radio" class="hidden" />
@@ -48,14 +48,14 @@
             </div>
         </td> -->
         <td class="inline-flex items-center">
-          <img class="rounded-full w-10 h-10 mr-2" [src]="item?.image"  alt="Avatar" />
+          <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../../assets/Image/male.png'"  alt="Avatar" />
            {{item?.name}}
       </td>
       <td>{{item?.email}}</td>
       <td>{{item?.subDate}}</td>
       <td>{{item?.expDate}}</td>
-      <td>{{item?.lastLogin}}</td>
-        <td class="flex items-center">
+      <td class="">{{item?.lastLogin}}</td>
+        <td class="flex items-center justify-center">
             <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
             <i  (click)="selectDeletItem(item)"  mat-raised-button
             matTooltip="Delete" class="fa fa-trash table-icon mr-2"></i>

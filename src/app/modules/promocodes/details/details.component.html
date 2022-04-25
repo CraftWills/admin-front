@@ -2,7 +2,7 @@
     <div class="flex justify-between items-center">
         <p class="gbold text-lg min-w-[70px]">Promocode Details</p>
      <div class="flex items-center">
-        <label (click)="EditToggle=true" class="bg-white border-red-400 border rounded-xl px-6 py-2.5 cursor-pointer text-black text-xs mr-3">
+        <label (click)="EditToggle=true" class="bg-hover bg-white border-red-400 border rounded-xl px-6 py-2.5 cursor-pointer text-black text-xs mr-3">
             Edit
         </label>
          <!-- <label for="my-modal-3" class="theme-red rounded-xl px-6 py-2.5 cursor-pointer text-white text-xs mr-3">
@@ -13,32 +13,32 @@
     <div class="grid grid-cols-5 gap-4 mt-4">
              <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                  <div>
-                     <p class="gbold text-sm">Discount Code</p>
-                     <p class="gbold text-xl mt-0">{{promoData?.discountPromocode}}</p>
+                     <p class="gsemi text-sm">Discount Code</p>
+                     <p class="gbold text-base break-all mt-0">{{promoData?.discountPromocode}}</p>
                 </div>
              </div>
              <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Created On</p>
-                    <p class="gbold text-xl mt-0">{{promoData?.createdOn}}</p>
+                    <p class="gsemi text-sm">Created On</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.createdOn}}</p>
                </div>
             </div>
             <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Expires On</p>
-                    <p class="gbold text-xl mt-0">{{promoData?.ExpireOn}}</p>
+                    <p class="gsemi text-sm">Expires On</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.expireOn}}</p>
                </div>
             </div>
             <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Used</p>
-                    <p class="gbold text-xl mt-0">{{promoData?.UsedOn}}</p>
+                    <p class="gsemi text-sm">Used</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.usage}}</p>
                </div>
             </div>
             <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                 <div>
-                    <p class="gbold text-sm">Total Discount Redeemed</p>
-                    <p class="gbold text-xl mt-0">{{promoData?.totalDiscount}}</p>
+                    <p class="gsemi text-sm">Total Discount Redeemed</p>
+                    <p class="gbold text-base break-all mt-0">{{promoData?.discountValue}}</p>
                </div>
             </div>
 

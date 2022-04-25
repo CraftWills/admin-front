@@ -11,7 +11,7 @@ export class SubcriptionComponent implements OnInit {
   constructor(private _subscriptionServe: SubscriptionService) { }
 
   subscriptionHistoryDisplay=[];
-  filtertoggle ='';
+  filtertoggle ;
   subscriptionHistory = [
     {
       name: 'Husain Ali',
@@ -296,9 +296,18 @@ export class SubcriptionComponent implements OnInit {
     console.log(value);
     this.filtertoggle=value;
     this.subscriptionHistoryDisplay=[...this.subscriptionHistory];
-    this.subscriptionHistoryDisplay =this.subscriptionHistory.filter((el)=>el.status.toLowerCase() === value) 
+    this.subscriptionHistoryDisplay =this.subscriptionHistory.filter((el)=>el.status === value) 
   }
-
+  AllSubscriberslist(){
+    this._subscriptionServe.getSubscriptionUser().subscribe((result)=>{
+  
+      this.subscriptionHistory = result ;
+  
+      this.subscriptionHistoryDisplay = [...this.subscriptionHistory];
+      console.log(this.subscriptionHistoryDisplay);
+    })
+  
+  }
   getTabsdata(){
     this._subscriptionServe.getSubscriptionStats().subscribe((result)=>{
 
@@ -310,6 +319,7 @@ export class SubcriptionComponent implements OnInit {
   ngOnInit(): void {
     this.subscriptionHistoryDisplay=[...this.subscriptionHistory];
     this.getTabsdata() ;
+    this.AllSubscriberslist() ;
   }
 
 }

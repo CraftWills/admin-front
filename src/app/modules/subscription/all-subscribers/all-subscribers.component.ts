@@ -31,9 +31,11 @@ AllSubscriberslist(){
   onSorting(value) {
     console.log(value);
     
-    if (value === 'All') {
+    if (value === 'All' || '') {
       this.allSubscribersDisplay = this.allSubscribers;
     } else {
+      console.log(value);
+      
       this.allSubscribersDisplay = this.allSubscribers.filter(
         (item) => item.subPlan === value
         );

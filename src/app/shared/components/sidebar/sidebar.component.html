@@ -51,10 +51,10 @@
             </div>
         </div>
         </div>
-    <div class="flex flex-row space-x-3 items-center side-bar" routerLink="/home/promocodes" routerLinkActive="sidebar-active">
+    <div class="flex flex-row space-x-3 items-center side-bar" routerLink="/home/promocodes"  [ngClass]="{'sidebar-active': router.url.includes('/home/promocode')}">
         <div><img src="../../../../assets/Icons/Promocodes.svg"></div>
         <p>Promocodes</p>
-        <div *ngIf="router.url==='/home/promocodes'" class="ml-auto w-fit side-icon absolute  right-[-2px]"><svg class="h-[69px] w-[18px] ml-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 5 24">
+        <div *ngIf="router.url.includes('/home/promocode')" class="ml-auto w-fit side-icon absolute  right-[-2px]"><svg class="h-[69px] w-[18px] ml-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 5 24">
             <path d="M 5 -3 C 5 -2 5 0 3 3 C 0 8 0 10 3 15 C 5 18 5 20 5 21" fill="#fff"/>
           </svg></div>
     </div>

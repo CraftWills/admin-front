@@ -7,14 +7,16 @@
             <div class="w-[150px]">
 
                 <ng-select
+                (change)="onSorting($event)"
+                [searchable]="false"
                 class="custom-selector profile w-full " 
                 placeholder="Select"
                 >
-                  <ng-option (click)="onSorting('All')" value="All">All</ng-option
+                  <ng-option  value="All">All</ng-option
                   >
-                  <ng-option (click)="onSorting('free')" value="free">free</ng-option
+                  <ng-option  value="free">free</ng-option
                   >
-                  <ng-option (click)="onSorting('month')" value="month">month</ng-option
+                  <ng-option  value="1 month">month</ng-option
                   >
                 </ng-select>
              </div>

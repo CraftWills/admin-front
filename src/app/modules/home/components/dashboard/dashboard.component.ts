@@ -59,6 +59,15 @@ this.totalActiveWills=result?.totalActiveWills;
 this.totalWill=result?.totalWill;
 }
     });
+    this.getTabsdata();
+  }
+  subscriptionStats 
+  getTabsdata(){
+    this._subscriptionServe.getSubscriptionStats().subscribe((result)=>{
+
+      this.subscriptionStats = result ;
+        console.log(this.subscriptionStats);
+    })
   }
 
   GraphData() {

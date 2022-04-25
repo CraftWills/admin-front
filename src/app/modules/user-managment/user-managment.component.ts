@@ -39,6 +39,7 @@ export class UserManagmentComponent implements OnInit {
     'Expiry Date',
     'Last Login',
   ];
+  userManagmentDataDisplay =[];
   userManagmentData = [
     {
       name: 'Husain Ali',
@@ -221,42 +222,46 @@ export class UserManagmentComponent implements OnInit {
       image: '../../../../../assets/Image/male.png',
     },
   ]
+  AllSubscriberslist(){
+    this._subscriptionServe.getSubscriptionUser().subscribe((result)=>{
+      this.spinner.stop();
+      this.userManagmentData = result;
+      this.userManagmentDataDisplay = [...this.userManagmentData];
+      console.log(this.userManagmentDataDisplay);
+    })
+  
+  }
   ngOnInit(): void {
-    this.createForm();
-    this._subscriptionServe.getSortByuser().subscribe(
-      (result) => {
-        console.log(result);
-        
-        this.spinner.stop();
-        this.userManagmentData = result?.data?.map((items, i) => {
-          console.log(items);
+    this.spinner.start();
 
-          return {
-            Name: 'Husain Ali',
-            email: 'alisdhfiohsidof@.com',
-            subDate: '10-10-2020',
-            expDate: '10-10-2020',
-            lastLogin: 'Tuesday 8:30 A.M',
-            // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-            image: '../../../../../assets/Image/male.png',
-            isDeletable: true,
-          };
-        });
-      },
-      (err) => {
-        this.spinner.stop();
-      }
-    );
+    this.createForm();
+ this.AllSubscriberslist();
   }
 
   selectDeletItem(Item) {
+    console.log(Item?.userId);
+    
     this.deleteToggle = true;
     this.selectedItem = Item;
+    
   }
   remove() {
-    console.log(this.selectedItem);
-    this.selectedItem = null;
+    console.log(this.selectedItem.userId);
     this.deleteToggle = false;
+    this._subscriptionServe.deleteUser(this.selectedItem?.userId).subscribe(
+      (result) => {
+        console.log(result);
+        this.AllSubscriberslist();
+        this.selectedItem = null;
+        this.spinner.stop();
+        this.toastr.message(result.message, result.success);
+      },
+      (err) => {
+        this.spinner.stop();
+        this.selectedItem = null;
+        this.toastr.message('Something Went Wrong!!!', false);
+      }
+    );
   }
   addNewUser() {
     if (this.InviteUserForm.invalid) {

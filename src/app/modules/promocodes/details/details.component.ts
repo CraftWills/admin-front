@@ -26,9 +26,9 @@ export class DetailsComponent implements OnInit {
   promoData = {
     discountPromocode: '',
     createdOn: '',
-    ExpireOn: '',
-    UsedOn: '',
-    totalDiscount: '',
+    expireOn: '',
+    usage: '',
+    discountValue: '',
   };
   min_date;
   EditPromoForm: FormGroup;
@@ -164,6 +164,8 @@ export class DetailsComponent implements OnInit {
       this.promoData = result.data.find((el: any) => {
         return el._id === this.id;
       });
+      console.log(this.promoData);
+      
       if (!this.promoData) {
         this.router.navigate([`/home/promocodes`]);
       }

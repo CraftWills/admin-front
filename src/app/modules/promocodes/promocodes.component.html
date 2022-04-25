@@ -5,9 +5,9 @@
 
         </div>
         <div class="flex items-center">
-            <label (click)="uploadToggle=true" class="bg-white border border-red-500 text-red-500 rounded-xl w-36 text-center py-2.5 cursor-pointer text-xs mr-3">
+            <!-- <label (click)="uploadToggle=true" class="bg-hover bg-white border border-red-500 text-red-500 rounded-xl w-36 text-center py-2.5 cursor-pointer text-xs mr-3">
                 Mass Upload
-            </label>
+            </label> -->
             <label (click)="CreateToggle=true" class="theme-red border-red-500 rounded-xl w-36 text-center py-2.5 cursor-pointer text-white text-xs mr-3">
                 Create Promocode
             </label>
@@ -107,10 +107,30 @@
                       <div class="text-red-500 errors mx-2">
                         {{ formErrors.discountType }}
                       </div>
-                        <input formControlName="discountValue" type="text" placeholder="Discount Value" class="input-text w-full p-2 mt-2">
-                        <div class="text-red-500 errors mx-2">
-                            {{ formErrors.discountValue }}
+                      <div class="flex flex-row w-full items-center">
+                          <div class="w-full">
+
+                              <ng-select
+                              formControlName="currencyType"
+                              [searchable]="true"
+                              bindLabel="label"
+                              [clearable]="false"
+                              class="custom-selector white joint"
+                              >
+                              <ng-option *ngFor="let item of cars" [value]="item.name">
+                              {{ item.name }}
+                              </ng-option>
+                               </ng-select>
                           </div>
+                             <div class="flex flex-col w-2/3">
+
+                                 <input formControlName="discountValue" type="text" placeholder="Discount Value" class="input-text w-full p-2 mt-2">
+                                     <div class="text-red-500 errors mx-2">
+                                     {{ formErrors.discountValue }}
+                                     </div>
+                             </div>
+                         </div>
+                   
                     </div>
                     <div class="bg-gray-100 rounded-xl p-4 my-3">
                         <p class="text-sm gsemi mb-2">
@@ -242,11 +262,11 @@
                       <div class="flex w-full items-center justify-center bg-grey-lighter mt-4">
                           <label class="border border-gray rounded-xl w-full  px-4 pr-0">
                               <p class="bg-gray-300 gbold rounded-xl text-xs h-10 w-36 flex items-center justify-center ml-auto ">Browse</p>
-                              <input type='file' class="hidden" formControlName="file"/>
+                              <input type='file' class="hidden" formControlName="file" (change)="upload($event)"/>
                           </label>
                       </div>
                       <div class="flex items-center mt-4">
-                          <button type="submit" (click)="uploadMassPromo" class="theme-red rounded-xl px-8 py-3 cursor-pointer text-white text-xs mr-3">
+                          <button type="submit" (click)="uploadMassPromo()" class="theme-red rounded-xl px-8 py-3 cursor-pointer text-white text-xs mr-3">
                               Upload
                           </button>
                           <button (click)="uploadToggle=false" class="bg-white border border-red-500 text-red-500 rounded-xl px-8 py-3 cursor-pointer text-xs mr-3">

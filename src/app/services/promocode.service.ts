@@ -12,7 +12,7 @@ export class PromocodeService {
     return this._httpservices.post(environment.serverUrl +'admin/createPromocode',obj);
   }
   editPromo(obj,id){
-    return this._httpservices.update(environment.serverUrl +`admin/createPromocode/${id}`,obj);
+    return this._httpservices.update(environment.serverUrl +`admin/updatePromocode/${id}`,obj);
   }
   deletePromo(_id){
     return this._httpservices.delete(environment.serverUrl +`admin/deletePromocode/${_id}`);

@@ -7,7 +7,7 @@ import { debounceTime, retry } from 'rxjs';
 import { valueChanges } from 'src/app/helper/formerror.helper';
 import { PromocodeService } from 'src/app/services/promocode.service';
 import { ToastrService } from 'src/app/shared/services/toastr.service';
-
+import { NumberCode } from 'src/app/shared/utils/NumberCode';
 @Component({
   selector: 'app-promocodes',
   templateUrl: './promocodes.component.html',
@@ -36,7 +36,7 @@ export class PromocodesComponent implements OnInit {
     this.selectedItem = Item;
   }
 
-
+  public cars: any = NumberCode;
   createForm() {
     this.createPromoForm = this._fb.group({
       discountPromocode:[
@@ -49,7 +49,8 @@ export class PromocodesComponent implements OnInit {
       expireOn  :[moment().format('YYYY-MM-DD'), [Validators.required]],
       usage  : ['', [Validators.required, Validators.pattern('^[0-9]*$'),Validators.maxLength(16)]],
       appliesTo :['entireOrder', [Validators.required]],
-      expireDateType:['Not expire',]
+      expireDateType:['Not expire',],
+      currencyType:[]
     });
     this.createPromoForm.valueChanges.subscribe(() => {
       this.formErrors = valueChanges(
@@ -137,7 +138,18 @@ export class PromocodesComponent implements OnInit {
       this.promoListDisplay = [...this.promoList];
     });
   }
+  fileData ;
+  upload(e){
+    console.log(e.target.files[0]);
+    this.fileData = e.target.files[0];
+    console.log(this.fileData);
+    
+    //pick from one of the 4 styles of file uploads below
+    // this.uploadAndProgress(files);
+  }
   uploadMassPromo() {
+    console.log(this.massPromoForm.value.file);
+    
     this.spinner.start();
 
     this._promoServ.csvUpload('form').subscribe(

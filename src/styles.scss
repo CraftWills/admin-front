@@ -84,6 +84,11 @@ input{
   .bg{
       background-color: #FF6782;
   }
+  .bg-hover:hover{
+    background-color:#FF6782 ;
+    color: #fff;
+    border: 1px solid #fff;
+  }
   p{
     color: black;
   }
@@ -440,3 +445,18 @@ div{
 input::placeholder{
   font-size: 14px;
 }
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+input {
+  -webkit-user-select: text; /* Chrome, Opera, Safari */
+  -moz-user-select: text; /* Firefox 2+ */
+  -ms-user-select: text; /* IE 10+ */
+  user-select: text; /* Standard syntax */
+}
+
