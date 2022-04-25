@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   // serverUrl : "https://craftwillllls.herokuapp.com/"
-  // serverUrl : "https://crafttttttwilllls.herokuapp.com/"
-  serverUrl : "http://localhost:3000/"
+  serverUrl : "https://crafttttttwilllls.herokuapp.com/"
+  // serverUrl : "http://localhost:3000/"
 };
 
 /*
