@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
       }
     );
     this.GraphData();
-    this._userServ.getStats().subscribe((result)=>{
+    this._userServ.getEarning().subscribe((result)=>{
 if (result.success==true) {
   this.currentSubscribedUsers =result?.currentSubscribedUsers;
 this.totalActiveWills=result?.totalActiveWills;
@@ -69,12 +69,17 @@ this.totalWill=result?.totalWill;
         console.log(this.subscriptionStats);
     })
   }
-
+label: [];
+SubscribeCount: [];
   GraphData() {
     this._userServ.getStats().subscribe(
       (result) => {
         console.log(result);
-        
+      this.label =result?.data?.map((el)=>el?.k);
+      this.SubscribeCount =result?.data?.map((el)=>el?.count);
+      console.log(this.label);
+      console.log(this.SubscribeCount);
+      
         this.spinner.stop();
         const canvas = <HTMLCanvasElement>document.getElementById('canvas');
         const ctx = canvas?.getContext('2d');
@@ -85,28 +90,12 @@ this.totalWill=result?.totalWill;
         this.chart1 = new Chart(ctx, {
           type: 'line',
           data: {
-            labels: [
-              'January',
-              'February',
-              'March',
-              'April',
-              'May',
-              'June',
-              'July',
-              'August',
-              'September',
-              'October',
-              'November',
-              'December',
-            ],
+            labels: this.label,
             datasets: [
               {
                 tension: 0.1,
                 fill: true,
-                data: [
-                  3000, 3400, 8500, 6002, 5200, 4200, 4020, 4900, 4000, 2400,
-                  2000, 8000,
-                ],
+                data:this.SubscribeCount,
                 // borderColor: '#1c4865',
                 hoverBackgroundColor: '#FF8672',
                 hoverBorderColor: '#FF8672',

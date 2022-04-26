@@ -3,20 +3,27 @@
     <div class="flex items-center">
        <p class="gsemi text-sm min-w-[70px]">Sort By:</p>
        <div class="w-[150px]">
-
            <ng-select
-           class="custom-selector profile w-full " 
-           placeholder="Select"
-           [items]="['All User', 'Subscribed User', 'Trial User']"
-           ></ng-select>
+                (change)="onSorting($event)"
+                [searchable]="false"
+                class="custom-selector profile w-full " 
+                placeholder="Select"
+                >
+                  <ng-option  value="All">All</ng-option
+                  >
+                  <ng-option  value="free">Trial user</ng-option
+                  >
+                  <ng-option  value="1 month">Subscribed user</ng-option
+                  >
+                </ng-select>
         </div>
 
     </div>
     <div class="flex items-center">
-        <div for="my-modal-3" (click)="toggleModal=true" class="theme-red rounded-xl px-6 py-2.5 cursor-pointer text-white text-xs mr-3">
+        <!-- <div for="my-modal-3" (click)="toggleModal=true" class="theme-red rounded-xl px-6 py-2.5 cursor-pointer text-white text-xs mr-3">
             Invite Users 
-        </div>
-        <p class="gsemi text-sm">17,465 Registered Users</p>
+        </div> -->
+        <p class="gsemi text-sm">{{userManagmentData?.length}} Registered Users</p>
      </div>
 </div>
 
@@ -55,12 +62,9 @@
       <td>{{item?.subDate}}</td>
       <td>{{item?.expDate}}</td>
       <td class="">{{item?.lastLogin}}</td>
-        <td class="flex items-center justify-center">
-            <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
+        <td class="flex items-center justify-center"> 
             <i  (click)="selectDeletItem(item)"  mat-raised-button
             matTooltip="Delete" class="fa fa-trash table-icon mr-2"></i>
-            <i mat-raised-button
-            matTooltip="Block User" class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
 
         </td>
     </tr>

@@ -108,28 +108,14 @@
                         {{ formErrors.discountType }}
                       </div>
                       <div class="flex flex-row w-full items-center">
-                          <div class="w-full">
-
-                              <ng-select
-                              formControlName="currencyType"
-                              [searchable]="true"
-                              bindLabel="label"
-                              [clearable]="false"
-                              class="custom-selector white joint"
-                              >
-                              <ng-option *ngFor="let item of cars" [value]="item.name">
-                              {{ item.name }}
-                              </ng-option>
-                               </ng-select>
-                          </div>
-                             <div class="flex flex-col w-2/3">
+                          
 
                                  <input formControlName="discountValue" type="text" placeholder="Discount Value" class="input-text w-full p-2 mt-2">
+                                </div>
                                      <div class="text-red-500 errors mx-2">
                                      {{ formErrors.discountValue }}
                                      </div>
-                             </div>
-                         </div>
+                             
                    
                     </div>
                     <div class="bg-gray-100 rounded-xl p-4 my-3">

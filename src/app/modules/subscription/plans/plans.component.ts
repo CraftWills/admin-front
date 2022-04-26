@@ -27,9 +27,14 @@ export class PlansComponent implements OnInit {
     },
   ];
   onViewPerformance(value){
+    if (value.planName==='month') {
+      this._router.navigate(['/home/subscription/performance'], { queryParams:{plan:'1 month'}});
+      return;
+    }
     this._router.navigate(['/home/subscription/performance'], { queryParams:{plan:value.planName}});
   }
   ngOnInit(): void {
+    this.spinner.start();
     this._subscriptionServe.getPlansList().subscribe(
       (result) => {
         console.log(result.data);

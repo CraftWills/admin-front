@@ -73,17 +73,31 @@
       <div class="flex flex-wrap sm:grid bold grid-cols-1 sm:grid-cols-2 md:grid-cols-4 sm:gap-x-8 sm:gap-y-2 mt-6">
         <div class="w-full">
           <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">Full Name</label>
-            <input type="text" placeholder="Full Name as per ID" [ngClass]="{ input_bg: inputState }"
+            <label class="input_label text-sm sm:text-base font-[GilroySemi]">First Name</label>
+            <input type="text" placeholder="First Name as per ID" [ngClass]="{ input_bg: inputState }"
               [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"
-              formControlName="fullName"
+              formControlName="firstName"
               class=" input-field focus:outline-none  bg-light " />
           </div>
 
           <div class="text-red-500 errors mx-2">
-            {{ formErrors.fullName }}
+            {{ formErrors.firstName }}
           </div>
         </div>
+        <div class="w-full">
+          <div class="input-group1">
+            <label class="input_label text-sm sm:text-base font-[GilroySemi]">Last Name</label>
+            <input type="text" placeholder="last Name" [ngClass]="{ input_bg: inputState }"
+              [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"
+              formControlName="lastName"
+              class=" input-field focus:outline-none  bg-light " />
+          </div>
+
+          <div class="text-red-500 errors mx-2">
+            {{ formErrors.lastName }}
+          </div>
+        </div>
+        
         <div class="w-full">
           <div class="input-group1">
             <label class="input_label text-sm sm:text-base font-[GilroySemi]">Email Address</label>
@@ -98,128 +112,27 @@
         </div>
         <div class="w-full">
           <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">Date of Birth</label>
-            <input type="date" placeholder="Date of Birth" [ngClass]="{ input_bg: inputState }" [max]="min_date"
-              [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"
-              formControlName="dob"
-              class=" input-field focus:outline-none  bg-light " />
-          </div>
-
-          <div class="text-red-500 errors mx-2">
-            {{ formErrors.dob }}
-          </div>
-        </div>
-        <div class="w-1/2 sm:w-auto">
-          <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">ID type</label>
-            <ng-select
-            class="custom-selector profile admin-profile w-full"
-            placeholder="Write your Id type...."
-            [items]="idList"
-            formControlName="id_type"
-            addTagText="Add New Id Type:"
-            [addTag]="true"
-            >
-          </ng-select>
-          </div>
-
-          <div class="text-red-500 errors mx-2">
-            {{ formErrors.id_type }}
-          </div>
-        </div>
-        <div class="w-1/2 sm:w-auto">
-          <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">ID Number</label>
-            <input type="text" placeholder="ID Number"  [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"  [ngClass]="{ input_bg: inputState }"  formControlName="id_number"
-              class=" input-field focus:outline-none  bg-light " />
-          </div>
-
-          <div class="text-red-500 errors mx-2">
-            {{ formErrors.id_number }}
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="input-group1">
             <label class="input_label text-sm sm:text-base font-[GilroySemi]">Gender</label>
 
 
               
-        <ng-select
-        [readonly]="inputState"
-        class="custom-selector profile admin-profile w-full"
-        placeholder="Gender"
-        [items]="genderList"
-        formControlName="gender"
-      
-        >
-      </ng-select>
-          </div>
-
+            <ng-select
+            [readonly]="inputState"
+            class="custom-selector profile admin-profile w-full"
+            placeholder="Gender"
+            [items]="genderList"
+            formControlName="gender"
+          
+            >
+          </ng-select>
           <div class="text-red-500 errors mx-2">
             {{ formErrors.gender }}
           </div>
         </div>
-      </div>
-      <div class="sm:flex flex-row mt-6 hidden">
-        <div class=" text-left font-[GilroyBold] text-xl">Address</div>
-
-      </div>
-      <div class="flex flex-wrap sm:grid bold grid-cols-1 sm:grid-cols-2 md:grid-cols-4 sm:gap-x-8 sm:gap-y-2 rounded-2xl p-3 sm:p-0  mt-2 sm:mt-0">
-        <div class="flex flex-row mt-1 mb-4 sm:hidden">
-          <div class=" text-left font-[GilroyBold] text-lg">Residential Address</div>
         </div>
-        <div class="w-full">
-          <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">Floor Number</label>
-            <input type="text" placeholder="Floor Number" [ngClass]="{ input_bg_address: inputState }"
-              [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"
-              formControlName="floorNumber"
-              class=" input-field focus:outline-none  bg-light " />
-          </div>
-
-          <div class="text-red-500 errors mx-2">
-            {{ formErrors.floorNumber }}
-          </div>
         </div>
-        <div class="w-full">
-          <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">Unit Number</label>
-            <input type="text" placeholder="Unit Number" [ngClass]="{ input_bg_address: inputState }"
-              [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"
-              formControlName="unitNumber"
-              class=" input-field focus:outline-none  bg-light " />
-          </div>
-
-          <div class="text-red-500 errors mx-2">
-            {{ formErrors.unitNumber }}
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">Street Name</label>
-            <input type="text" placeholder="Street Name" [ngClass]="{ input_bg_address : inputState } "
-              [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"
-              formControlName="streetName"
-              class=" input-field focus:outline-none  bg-light " />
-          </div>
-
-          <div class="text-red-500 errors mx-2">
-            {{ formErrors.streetName }}
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="input-group1">
-            <label class="input_label text-sm sm:text-base font-[GilroySemi]">Postal Code</label>
-            <input type="text" placeholder="Postal Code" [ngClass]="{ input_bg_address: inputState }"
-              [attr.disabled]="inputState ? '' : null" [ngStyle]="{ cursor: inputState ? 'not-allowed' : 'default' }"
-              formControlName="postalCode"
-              class=" input-field focus:outline-none  bg-light " />
-          </div>
-          <div class="text-red-500 errors mx-2">
-            {{ formErrors.postalCode }}
-          </div>
-        </div>
-      </div>  
+        
+       
 
       <input type="submit" class="submit btn hidden" id="submitButtonId" hidden value="Next" />
     </form>

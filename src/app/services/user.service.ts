@@ -16,13 +16,13 @@ export class UserService {
 
 
     getStats(){
-      return this._httpservices.get(environment.serverUrl +'admin/quickStats');
+      return this._httpservices.get(environment.serverUrl +'admin/getUsersMonthly');
     }
     getEarning(){
       return this._httpservices.get(environment.serverUrl +'admin/quickStats');
     }
     getProfile(){
-      return this._httpservices.get(environment.serverUrl +'admin/quickStats');
+      return this._httpservices.get(environment.serverUrl +'admin/getProfile');
     }
     getProfilePic(){
       return this._httpservices.get(environment.serverUrl +'admin/getProfilepic');
@@ -34,10 +34,10 @@ export class UserService {
       return this._httpservices.update(environment.serverUrl +'admin/upload',obj);
     }
     updatePassword(obj){
-      return this._httpservices.update(environment.serverUrl +'admin/updateProfile',obj);
+      return this._httpservices.update(environment.serverUrl +'admin/updatePassword',obj);
     }
     updateProfile(obj){
-      return this._httpservices.update(environment.serverUrl +'admin/updateProfile',obj);
+      return this._httpservices.update(environment.serverUrl +'admin/updateAdmin',obj);
     }
 
 

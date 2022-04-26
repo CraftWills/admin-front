@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
     this._headerServ.username.subscribe((name) => {
-      this.username = name.split(' ')
+      this.username = name?.split(' ')
    .map(w => w[0].toUpperCase() + w.substring(1).toLowerCase())
    .join(' ');
     });

@@ -92,6 +92,7 @@ export class PromocodesComponent implements OnInit {
     },
   };
   ngOnInit(): void {
+    this.spinner.start();
     this.min_date = moment().format('YYYY-MM-DD');
     this.createForm();
     this.searchForm.valueChanges.pipe(debounceTime(200)).subscribe((e) => {
@@ -124,6 +125,7 @@ export class PromocodesComponent implements OnInit {
   callPromoListHandler() {
     this._promoServ.getPromo().subscribe((result) => {
       console.log(result);
+      this.spinner.stop();
       this.promoList = result.data.map((el: any) => {
         return {
           discountPromocode: el?.discountPromocode,
@@ -136,7 +138,11 @@ export class PromocodesComponent implements OnInit {
       });
 
       this.promoListDisplay = [...this.promoList];
-    });
+    }),
+    (err) => {
+      this.spinner.stop();
+      this.toastr.message('Something Went Wrong!!!', false);
+    };
   }
   fileData ;
   upload(e){
@@ -195,7 +201,7 @@ const data ={
     this.createPromoForm.reset();
     this.createPromoForm.patchValue({
       appliesTo :'entireOrder',
-      expireDateType:'Not expire',
+      expireDateType:'Not expire',        
       expireOn:moment().format('YYYY-MM-DD')
     })
   }

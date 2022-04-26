@@ -40,188 +40,7 @@ export class UserManagmentComponent implements OnInit {
     'Last Login',
   ];
   userManagmentDataDisplay =[];
-  userManagmentData = [
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-    {
-      name: 'Husain Ali',
-      email: 'alisdhfiohsidof@.com',
-      subDate: '10-10-2020',
-      expDate: '10-10-2020',
-      lastLogin: 'Tuesday 8:30 A.M',
-      // actionRoute: 'this.assetsServices.getAssetsData(items)?.actionRoute',
-      image: '../../../../../assets/Image/male.png',
-    },
-  ]
+  userManagmentData = []
   AllSubscriberslist(){
     this._subscriptionServe.getSubscriptionUser().subscribe((result)=>{
       this.spinner.stop();
@@ -244,6 +63,19 @@ export class UserManagmentComponent implements OnInit {
     this.deleteToggle = true;
     this.selectedItem = Item;
     
+  }
+  onSorting(value) {
+    console.log(value);
+    
+    if (value === 'All' || '') {
+      this.userManagmentDataDisplay = this.userManagmentData;
+    } else {
+      console.log(value);
+      
+      this.userManagmentDataDisplay = this.userManagmentData.filter(
+        (item) => item.subPlan === value
+        );
+      }
   }
   remove() {
     console.log(this.selectedItem.userId);

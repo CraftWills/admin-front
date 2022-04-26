@@ -42,26 +42,27 @@ export class ProfileComponent implements OnInit {
   idList = ['NRIC', 'Passport', 'FIN'];
   createForm() {
     this.userInfo = this._fb.group({
-      fullName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),Validators.maxLength(32)]],
       email: [
         '',
         [
           Validators.required,
           Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'),
-        ],
-      ],
-      id_type: [, Validators.required],
-      id_number: ['', [Validators.required ,Validators.pattern('[a-zA-Z0-9]*'),
-      Validators.maxLength(16),]],
-      gender: [],
-      floorNumber: ['', [Validators.required, Validators.maxLength(6)]],
-      unitNumber: ['', [Validators.required, Validators.maxLength(6)]],
-      streetName: ['', [Validators.required,Validators.maxLength(64)]],
-      postalCode: ['', [Validators.required, , Validators.pattern('^[0-9]*$'), Validators.maxLength(12)]],
-      id_country: [''],
-      dob: [],
-      Citizenship: [''],
-      profileImage: [''],
+        ],  ],
+        firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),Validators.maxLength(32)]],
+        lastName : ['', [Validators.required, Validators.pattern('[a-zA-Z ]*'),Validators.maxLength(32)]],
+        gender:[],
+    
+      // id_type: [, Validators.required],
+      // id_number: ['', [Validators.required ,Validators.pattern('[a-zA-Z0-9]*'),
+      // Validators.maxLength(16),]],
+      // gender: [],
+      // floorNumber: ['', [Validators.required, Validators.maxLength(6)]],
+      // unitNumber: ['', [Validators.required, Validators.maxLength(6)]],
+      // streetName: ['', [Validators.required,Validators.maxLength(64)]],
+      // postalCode: ['', [Validators.required, , Validators.pattern('^[0-9]*$'), Validators.maxLength(12)]],
+      // id_country: [''],
+      // dob: [],
+      // Citizenship: [''],
     });
     this.passwordForm = this._fb.group(
       {
@@ -96,35 +97,25 @@ export class ProfileComponent implements OnInit {
     });
   }
   formErrors = {
-    id_type: '',
-    id_number: '',
-    gender: '',
-    fullName: '',
-    email: '',
-    floorNumber: '',
-    unitNumber: '',
-    streetName: '',
-    postalCode: '',
-    Citizenship: '',
-    dob: '',
+    firstName :'',
+            lastName:'',
+            gender:'',
+            email:'',
     newPassword: '',
     confirmPassword: '',
     password: '',
   };
 
   formErrorMessages = {
-    id_type: {
-      required: 'Id Type is required.',
-    },
-    id_number: {
-      required: 'Id number is required.',
-      maxlength: 'Please enter valid id number',
-      pattern: 'Invalid id number',
-    },
     gender: {
       required: 'Gender is required.',
     },
-    fullName: {
+    firstName: {
+      required: 'Full name is required.',
+      maxlength: 'Word limit Exceed..',
+      pattern: 'Please enter a valid name',
+    },
+    lastName: {
       required: 'Full name is required.',
       maxlength: 'Word limit Exceed..',
       pattern: 'Please enter a valid name',
@@ -137,23 +128,7 @@ export class ProfileComponent implements OnInit {
       required: 'Current password is required.',
       minlength: 'Minimum length of password must be 6',
     },
-    floorNumber: {
-      required: 'Floor number is required.',
-      maxlength: 'Please Enter valid floor number',
-    },
-    unitNumber: {
-      required: 'Unit number is required.',
-      maxlength: 'Please enter valid unit Number',
-    },
-    streetName: {
-      required: 'Street name is required.',
-      maxlength: 'Word limit Exceed..',
-    },
-    postalCode: {
-      required: 'Postal Code is required.',
-      pattern: 'Please Enter valid numeric value',
-      maxlength: 'Please Enter valid postal code',
-    },
+    
     newPassword: {
       required: 'New Password is required.',
       minlength: 'Minimum length must be 6',
@@ -164,27 +139,25 @@ export class ProfileComponent implements OnInit {
       matching: 'New Password and confirm password should be same',
     },
   };
+  
   ngOnInit(): void {
     this.createForm();
     this.min_date = moment().subtract(18, 'years').format('YYYY-MM-DD');
-    // this._userServ.getProfile().subscribe(
-    //   (result) => {
-    //     this.spinner.stop();
-    //     this.profileData=(({ subscriptionData, ...o }) => o)(result.data)
-    //     this.profileData = {
-    //       ...this.profileData,
-    //       gender:
-    //         result.data.gender.charAt(0).toUpperCase() +
-    //         result.data.gender.slice(1),
-    //     };
-    //     this.userInfo.patchValue( (({ subscriptionData, ...o }) => o)(result.data));
-    //     this._headerServ.username.next(result.data.fullName);
-    //     //console.log(result);
-    //     this.setImageHandler(result);
-    //   },(err)=>{
-    //     this.spinner.stop();
-    //     this.toastr.message("Something Went Wrong!!!",false);
-    //       });
+    this._userServ.getProfile().subscribe(
+      (result) => {
+        console.log(result);
+        
+        this.spinner.stop();
+        this.profileData=(({ _id,password, ...o }) => o)(result.data);
+        this.userInfo.patchValue( (({ subscriptionData, ...o }) => o)(result.data));
+        this._headerServ.username.next(result?.data?.firstName+ ' ' +result?.data?.lastName );
+        this._headerServ.email.next(result?.data?.email);
+        //console.log(result);
+        this.setImageHandler(result);
+      },(err)=>{
+        this.spinner.stop();
+        this.toastr.message("Something Went Wrong!!!",false);
+          });
     this._userServ.getProfilePic().subscribe(
       (result) => {
         this.spinner.stop();
@@ -337,41 +310,20 @@ export class ProfileComponent implements OnInit {
       this.spinner.start();
       const profiledate = {
         ...this.userInfo.value,
-        gender: this.userInfo.value.gender?.toLowerCase(),
       };
       this._userServ.updateProfile(profiledate).subscribe(
         (result) => {
-          //console.log(result);
+          console.log(result);
           this.profileData = (({
-            id_type,
-            id_number,
+            firstName ,
+            lastName ,
             gender,
-            fullName,
             email,
-            floorNumber,
-            unitNumber,
-            streetName,
-            postalCode,
-            Citizenship,
-            id_country,
-            dob,
-            profileImage,
           }) => ({
-            id_type,
-            id_number,
-            gender:
-              result.data.gender.charAt(0).toUpperCase() +
-              result.data.gender.slice(1),
-            fullName,
+            firstName ,
+            lastName ,
+            gender,
             email,
-            floorNumber,
-            unitNumber,
-            streetName,
-            postalCode,
-            Citizenship,
-            id_country,
-            dob,
-            profileImage,
           }))(result.data);
           this.setImageHandler(result);
   
@@ -386,7 +338,8 @@ export class ProfileComponent implements OnInit {
           this.spinner.stop();
           this.toastr.message("Something Went Wrong!!!",false);
             });
-      this._headerServ.username.next(this.userInfo.value.fullName);
+      this._headerServ.username.next(this.userInfo.value.firstName + ' ' +this.userInfo.value.lastName);
+      this._headerServ.email.next(this.userInfo.value.email);
     }
     logout() {
       localStorage.removeItem('user');
@@ -413,7 +366,7 @@ export class ProfileComponent implements OnInit {
         },
         (err) => {
           this.spinner.stop();
-          this.toastr.message(err.text, false);
+          this.toastr.message(err.message, false);
           //console.log(err);
         }
       );

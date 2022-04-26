@@ -1,7 +1,7 @@
 <section class="theme-shadow  rounded-3xl h-full mx-5 my-2">
     <div class="flex justify-between items-center py-5 px-4">
         <div class="flex items-center">
-           <p class="gbold text-md min-w-[70px]">Gold Plan - User List</p>
+           <p class="gbold text-md min-w-[70px]">{{this.plan}} Plan - User List</p>
         </div>
     </div>
     
@@ -23,7 +23,7 @@
         <th>Action</th>
     </thead>
     <tbody>
-        <tr *ngFor="let item of userListPlans;let i=index">
+        <tr *ngFor="let item of userListPlansDisplay;let i=index">
             <!-- <td class="table-radio-td">
                 <div class="inline-flex items-center">
                     <input id="radio1" type="radio" name="radio" class="hidden" />
@@ -33,7 +33,7 @@
                 </div>
             </td> -->
             <td class="inline-flex items-center">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="item?.image"  alt="Avatar" />
+                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../../assets/Image/male.png'"  alt="Avatar" />
                  {{item?.name}}
             </td>
             <td>{{item?.email}}</td>
@@ -41,10 +41,8 @@
             <td>{{item?.expDate}}</td>
             <td>{{item?.lastLogin}}</td>
             <td class="flex items-center">
-                <i class="fa-solid fa-rotate-left table-icon mr-2"></i>
                 <i (click)="selectDeletItem(item)"  mat-raised-button
             matTooltip="Delete" class="fa fa-trash table-icon mr-2"></i>
-                <i class="fa-solid fa-ban table-icon mr-2 icon-red"></i>
     
             </td>
         </tr>

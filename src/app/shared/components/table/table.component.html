@@ -23,7 +23,7 @@
                     class="rounded-full font-['GilroySemi'] text-center flex items-center justify-center mr-5">
                     <img class="w-[40px] h-[40px]" src="{{ item.image }}" />
                 </div>
-                {{ item[key] || key }}
+                {{ item[key] || 'NA' }}
             </div>
             <div *ngIf="actionToggle && !actionList"
                 class="w-1/12 absolute top-0 bottom-0 md:static right-4 break-words cursor-pointer text-center flex justify-center m-auto">
