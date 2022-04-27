@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { debounceTime } from 'rxjs';
 import { valueChanges } from 'src/app/helper/formerror.helper';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { UserService } from 'src/app/services/user.service';
@@ -54,6 +55,9 @@ export class UserManagmentComponent implements OnInit {
     this.spinner.start();
 
     this.createForm();
+    this.searchForm.valueChanges.pipe(debounceTime(200)).subscribe((e) => {
+      this.onSearchHandler();
+    });
  this.AllSubscriberslist();
   }
 
@@ -89,11 +93,34 @@ export class UserManagmentComponent implements OnInit {
         this.toastr.message(result.message, result.success);
       },
       (err) => {
+        console.log(err);
+        
         this.spinner.stop();
         this.selectedItem = null;
         this.toastr.message('Something Went Wrong!!!', false);
       }
     );
+  }
+  searchForm = new FormControl('');
+  onSearchHandler() {
+    if (this.searchForm.value === null || this.searchForm.value === '') {
+      this.userManagmentDataDisplay = [...this.userManagmentData];
+    }
+    this.userManagmentDataDisplay = this.userManagmentData.filter((items) => {
+      for (const property in items) {
+        console.log(items[property]);
+        if (
+          items[property]
+            ?.toString()
+            ?.toLowerCase()
+            ?.includes(this.searchForm.value?.toLowerCase())
+        ) {
+          return items;
+        }
+      }
+
+      return false;
+    });
   }
   addNewUser() {
     if (this.InviteUserForm.invalid) {
