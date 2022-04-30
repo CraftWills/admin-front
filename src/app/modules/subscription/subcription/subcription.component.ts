@@ -299,7 +299,7 @@ export class SubcriptionComponent implements OnInit {
     console.log(value);
     this.filtertoggle=value;
     this.subscriptionHistoryDisplay=[...this.subscriptionHistory];
-    this.subscriptionHistoryDisplay =this.subscriptionHistory.filter((el)=>el.status === value) 
+    this.subscriptionHistoryDisplay =this.subscriptionHistory.filter((el)=>el.status === value) ;
   }
   AllSubscriberslist(){
     this._subscriptionServe.getSubscriptionUser().subscribe((result)=>{

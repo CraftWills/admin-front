@@ -88,11 +88,23 @@ export class HeaderComponent implements OnInit {
       (result) => {
         this.spinner.stop();
       console.log(result);
-      this.setImageHandler(result)
-
+      this.setImageHandler(result);
       },(err)=>{
         this.spinner.stop();
         this.toastr.message("Something Went Wrong!!!",false);
           });
+
+          this._userServ.getProfile().subscribe(
+            (result) => {
+            console.log(result);
+            this._headerServ.username.next(result?.data?.firstName+ ' ' +result?.data?.lastName );
+        this._headerServ.email.next(result?.data?.email);
+        
+        this.setImageHandler(result);
+      
+            },(err)=>{
+              this.spinner.stop();
+              this.toastr.message("Something Went Wrong!!!",false);
+                });
   }
 }

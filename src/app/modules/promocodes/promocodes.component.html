@@ -1,19 +1,19 @@
 <section class="theme-shadow  rounded-3xl h-full mx-5 my-2">
     <div class="flex justify-between items-center py-5 px-4">
-        <div class="flex items-center m-auto w-[30%]">
-            <input type="search" placeholder="Search Promocode" [formControl]="searchForm"  class="input-text w-full p-2">
+        <div class="flex items-center md:w-[30%] w-[60%] mr-4">
+            <input type="search" placeholder="Search Promocode" [formControl]="searchForm"  class="input-text w-full p-2" />
 
         </div>
         <div class="flex items-center">
             <!-- <label (click)="uploadToggle=true" class="bg-hover bg-white border border-red-500 text-red-500 rounded-xl w-36 text-center py-2.5 cursor-pointer text-xs mr-3">
                 Mass Upload
             </label> -->
-            <label (click)="CreateToggle=true" class="theme-red border-red-500 rounded-xl w-36 text-center py-2.5 cursor-pointer text-white text-xs mr-3">
+            <label (click)="CreateToggle=true" class="theme-red border-red-500 rounded-xl w-36 text-center py-2.5 cursor-pointer text-white text-xs md:mr-3">
                 Create Promocode
             </label>
          </div>
     </div>
-    
+    <div class="overflow-x-auto w-full">
     <table class="user-mgmt-table">
     <thead>
         <!-- <th class="table-radio-td">
@@ -41,7 +41,7 @@
                 </div>
             </td> -->
             <td class="inline-flex items-center gbold">
-                <p class="gbold">{{item?.discountPromocode}}</p> 
+                <p class="gbold break-all">{{item?.discountPromocode}}</p> 
             </td>
             <td>{{item?.createdOn}}</td>
             <td>{{item?.discountType}}</td>
@@ -56,6 +56,7 @@
 
     </tbody>
     </table>
+    </div>
     
     
     
@@ -122,7 +123,7 @@
                         <p class="text-sm gsemi mb-2">
                             Applies to
                         </p>
-                        <div class="flex w-full mt-1 justify-evenly ml-0 items-center">
+                        <div class="flex w-full mt-1 ml-0 items-center">
                             <input
                               type="radio"
                               formControlName="appliesTo"
@@ -130,7 +131,7 @@
                               id="test1"
                               class="mx-1 radioCustom"
                             />
-                            <label class="text-sm mx-1 mt-1" for="test1">
+                            <label class="text-sm mx-1 mt-1 text-black" for="test1">
                                 Entire Order</label>
                             <input
                               type="radio"
@@ -139,7 +140,7 @@
                               value="subscription"
                               class="mx-1 radioCustom"
                             />
-                            <label class="text-sm mx-1 mt-1" for="test2">Specific Subscription</label>
+                            <label class="text-sm mx-1 mt-1 text-black" for="test2">Specific Subscription</label>
                           </div>
                     </div>
                     <div class="bg-gray-100 rounded-xl p-4 my-3">

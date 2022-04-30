@@ -1,4 +1,4 @@
-<section class="theme-shadow h-full  rounded-3xl my-2 mx-5 py-5 px-5">
+<section class="theme-shadow h-auto  rounded-3xl my-2 mx-5 py-5 px-5">
     <div class="flex justify-between items-center">
         <p class="gbold text-lg min-w-[70px]">Promocode Details</p>
      <div class="flex items-center">
@@ -9,8 +9,8 @@
             Create Promocode
          </label> -->
       </div>
- </div>
-    <div class="grid grid-cols-5 gap-4 mt-4">
+   </div>
+    <div class="grid md:grid-cols-5 grid-cols-1 gap-4 mt-4">
              <div class="bg-gray-100 rounded-2xl p-4 px-5 h-[80px] flex items-center">
                  <div>
                      <p class="gsemi text-sm">Discount Code</p>
@@ -44,9 +44,11 @@
 
     </div>
 
-    <div class="flex justify-between items-center  py-5 px-4 mt-5">
+    <div class="flex justify-between items-center  py-5 px-4 md:mt-5 mt-10">
            <p class="gbold text-sm min-w-[70px]">People Who Used This Promocode</p>
     </div>
+
+    <div class="overflow-x-auto w-full">
     <table class="subs-history-table">
     <thead>
         <!-- <th class="table-radio-td">
@@ -89,6 +91,7 @@
 
     </tbody>
     </table>
+    </div>
     
     
     
@@ -141,7 +144,7 @@
                         <p class="text-sm gsemi mb-2">
                             Applies to
                         </p>
-                        <div class="flex w-full mt-1 justify-evenly ml-0 items-center">
+                        <div class="flex w-full mt-1  ml-0 items-center">
                             <input
                               type="radio"
                               formControlName="appliesTo"

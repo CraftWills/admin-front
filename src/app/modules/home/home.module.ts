@@ -8,6 +8,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ClickOutsideModule } from 'ng-click-outside';
+
 
 
 
@@ -24,6 +26,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     FormsModule,
     ImageCropperModule,
     NgSelectModule,
+    ClickOutsideModule
   ]
 })
 export class HomeModule { }

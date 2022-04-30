@@ -147,7 +147,7 @@ export class ProfileComponent implements OnInit {
       (result) => {
         console.log(result);
         
-        this.spinner.stop();
+        this.spinner.stop(); 
         this.profileData=(({ _id,password, ...o }) => o)(result.data);
         this.userInfo.patchValue( (({ subscriptionData, ...o }) => o)(result.data));
         this._headerServ.username.next(result?.data?.firstName+ ' ' +result?.data?.lastName );

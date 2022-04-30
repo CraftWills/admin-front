@@ -324,7 +324,7 @@ border-radius: 10px !important;
 @media only screen and (max-width: 640px) {
   .profile.ng-select.ng-select-disabled>.ng-select-container{
     background-color: #fff;
-    margin-left: -12px;
+    margin-left: 0px;
     cursor:not-allowed;
   }
 }
@@ -460,3 +460,12 @@ input {
   user-select: text; /* Standard syntax */
 }
 
+
+
+
+@media(max-width:767px){
+  td{
+    min-width: 120px;
+    font-size: 12px !important;
+  }
+}

@@ -24,6 +24,7 @@
     "chart.js": "^3.7.1",
     "daisyui": "^2.13.6",
     "moment": "^2.29.3",
+    "ng-click-outside": "^9.0.1",
     "ng2-charts": "^3.0.8",
     "ngx-image-cropper": "^6.1.0",
     "ngx-toastr": "^14.2.3",

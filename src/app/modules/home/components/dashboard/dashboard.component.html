@@ -1,6 +1,15 @@
 <div class="block">
-  <div class="flex flex-row card h-100 m-3 space-x-5 p-0 py-2 shadow-none">
-    <div class="p-4 flex flex-col w-3/4 space-y-3 pt-0">
+
+  <div class="curved-div">
+    <svg viewBox="0 0 1440 319" stroke="red">
+      <path fill="#fff" fill-opacity="1" d="M 100 300 L 200 300 L 300 300 Q 350 350 400 350 Q 450 350 500 300 L 600 300 L 700 300 "></path>
+    </svg>
+  </div>
+
+
+
+  <div class="md:flex block md:flex-row card h-100 m-3 md:space-x-5 p-0 py-2 shadow-none">
+    <div class="p-4 flex flex-col md:w-3/4 w-full space-y-3 pt-0">
       <div class="card p-5 flex-col flex space-y-2">
         <div class="flex flex-row justify-between">
           <div class="font-['GilroyBold'] text-lg text-black">Subscribed Users</div>
@@ -12,7 +21,7 @@
             ></ng-select> -->
           </div>
         </div>
-        <div class="h-[320px]">
+        <div class="md:h-[320px] h-[220px]">
           <canvas id="canvas" class="h-[150px] sm:h-[200px]">{{
             chart1
           }}</canvas>
@@ -20,12 +29,54 @@
       </div>
       <div class="card ">
         <div class="font-['GilroyBold'] text-lg px-5 py-3 text-black">Users</div>
-        <app-table  [viewAction]="false" [actionToggle]="false" [tableHeadings]="tableHeadings"  class="overflow-scroll max-h-[400px] sm:max-h-full sm:h-[45vh] " [tableData]="userData"
+
+        <!-- <app-table  [viewAction]="false" [actionToggle]="false" [tableHeadings]="tableHeadings"  class="overflow-scroll max-h-[400px] sm:max-h-full sm:h-[45vh] " [tableData]="userData"
         [keys]="tableKeys" [classes]="classes" emptyTableMessage="No Users Found">
-        </app-table>
+        </app-table> -->
+        <div class="w-full overflow-x-auto">
+          <table class="user-mgmt-table">
+            <thead>
+                <!-- <th class="table-radio-td">
+                    <div class="inline-flex items-center">
+                        <input id="radio1" type="radio" name="radio" class="hidden" />
+                        <label for="radio1" class="flex items-center cursor-pointer">
+                         <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+                        </label>
+                    </div>
+                </th> -->
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Subscription Date</th>
+                <th>Expiry Date</th>
+                <th >Last Login</th>
+               
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of userData;let i=index">
+                    <!-- <td class="table-radio-td">
+                        <div class="inline-flex items-center">
+                            <input id="radio1" type="radio" name="radio" class="hidden" />
+                            <label for="radio1" class="flex items-center cursor-pointer">
+                             <span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+                            </label>
+                        </div>
+                    </td> -->
+                    <td class="inline-flex items-center">
+                      <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../../assets/Image/male.png'"  alt="Avatar" />
+                       {{item?.name}}
+                  </td>
+                  <td>{{item?.email}}</td>
+                  <td>{{item?.subDate}}</td>
+                  <td>{{item?.expDate}}</td>
+                  <td class="">{{item?.lastLogin}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
       </div>
     </div>
-    <div class="card p-4 w-1/4 space-y-4">
+    <div class="card p-4 md:w-1/4 w-[92%] mx-auto space-y-4">
       <div class="gsemi text-xl text-black">Quick Statistics</div>
       <div class="flex flex-col space-y-3">
         <div
@@ -56,11 +107,11 @@
           <div class="gsemi text-lg">{{currentSubscribedUsers}}</div>
         </div>
       </div>
-      <div class="gsemi text-xl">Earnings</div>
+      <div class="gsemi text-xl pt-[25px] md:pt-0">Earnings</div>
       <div class="flex flex-col space-y-3">
         <div class="rounded-2xl flex flex-col bg-light justify-around p-4 px-7">
           <div class="flex flex-col text-lg gsemi">Total Earnings</div>
-          <div class="gsemi text-lg">{{subscriptionStats?.totalEarning}}</div>
+          <div class="gsemi text-lg">${{subscriptionStats?.totalEarning}}</div>
         </div>
         <div
           class="rounded-2xl p-2 flex flex-row bg-light justify-around items-center"
@@ -69,7 +120,7 @@
             <div class="gsemi">This</div>
             <div class="gsemi">Week</div>
           </div>
-          <div class="gsemi text-lg">{{subscriptionStats?.thisWeekEarning}}</div>
+          <div class="gsemi text-lg">${{subscriptionStats?.thisWeekEarning}}</div>
         </div>
         <div
           class="rounded-2xl p-2 flex flex-row bg-light justify-around items-center"
@@ -78,7 +129,7 @@
             <div class="gsemi">This</div>
             <div class="gsemi">Month</div>
           </div>
-          <div class="gsemi text-lg">{{subscriptionStats?.thisMonthEarning}}</div>
+          <div class="gsemi text-lg">${{subscriptionStats?.thisMonthEarning}}</div>
         </div>
         <div
           class="rounded-2xl p-2 flex flex-row bg-light justify-around items-center"
@@ -87,7 +138,7 @@
             <div class="gsemi">Lifetime</div>
             <div class="gsemi">Earning</div>
           </div>
-          <div class="gsemi text-lg">{{subscriptionStats?.lifeTimeEarning}}</div>
+          <div class="gsemi text-lg">${{subscriptionStats?.lifeTimeEarning}}</div>
         </div>
       </div>
       <div></div>

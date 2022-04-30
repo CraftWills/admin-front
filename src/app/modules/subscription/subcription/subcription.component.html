@@ -1,20 +1,19 @@
 <section class="theme-shadow  rounded-3xl my-2 mx-5 py-5 px-5">
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div>
             <p class="gbold text-sm mb-3">Total Subscribers</p>
             <div class="grid grid-cols-2 gap-4">
              <div class="bg-lightred rounded-2xl p-4 px-5 h-[155px] flex items-center">
                  <div>
                      <p class="gbold text-sm">Total <br/> Subscribed Users</p>
-                     <p class="gbold text-3xl mt-2">${{subscriptionStats?.totalSub}}</p>
+                     <p class="gbold text-3xl mt-2">{{subscriptionStats?.totalSub}}</p>
                 </div>
              </div>
              <div class="bg-lightred rounded-2xl p-4 px-5 h-[155px] flex  flex-row items-center justify-between relative">
             
-                 <div>
-                     
+                 <div class="whitespace-nowrap">
                      <p class="gbold text-sm">Total <br/> Free-Plan Users</p>
-                     <p class="gbold text-3xl mt-2">${{subscriptionStats?.totalFreePlan}}</p>
+                     <p class="gbold text-3xl mt-2">{{subscriptionStats?.totalFreePlan}}</p>
                     </div>
                     <div class="w-[100px]">
                 
@@ -31,19 +30,19 @@
         <div>
             <p class="gbold text-sm mb-3">Subscription Earnings</p>
             <div class="grid grid-cols-2 gap-4">
-             <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+             <div class="bg-lightred rounded-2xl p-4 px-5 md:h-[70px] h-[100px] md:flex block items-center">
                      <p class="gbold text-xs mr-10">Total <br/>Earning</p>
                      <p class="gbold text-2xl">${{subscriptionStats?.totalEarning}}</p>
              </div>
-             <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+             <div class="bg-lightred rounded-2xl p-4 px-5 md:h-[70px] h-[100px] md:flex block  items-center">
                     <p class="gbold text-xs mr-10">This <br/> Month</p>
                     <p class="gbold text-2xl">${{subscriptionStats?.totalMonthSub}}</p>
             </div>
-            <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+            <div class="bg-lightred rounded-2xl p-4 px-5 md:h-[70px] h-[100px] md:flex block  items-center">
                 <p class="gbold text-xs mr-10">This <br/>Week</p>
                 <p class="gbold text-2xl">${{subscriptionStats?.thisWeekEarning}}</p>
             </div>
-             <div class="bg-lightred rounded-2xl p-4 px-5 h-[70px] flex items-center">
+             <div class="bg-lightred rounded-2xl p-4 px-5 md:h-[70px] h-[100px] md:flex block  items-center">
                     <p class="gbold text-xs mr-10">Lifetime <br/> Earning</p>
                     <p class="gbold text-2xl">${{subscriptionStats?.lifeTimeEarning}}</p>
             </div>
@@ -65,36 +64,39 @@
 
          </div>
     </div>
-    <table class="subs-history-table">
-    <thead>
-        <th class="table-radio-td"></th>
-        <th>Name & Email Address</th>
-        <th>Subscription Plan</th>
-        <th>Subscription Date</th>
-        <th>Expiry Date</th>
-        <th>Price</th>
-        <th>Action</th>
-    </thead>
-    <tbody>
-        <tr  *ngFor="let item of subscriptionHistoryDisplay;let i=index">
-            <td class="table-radio-td">
-                <img class="rounded-full w-10 h-10 mr-2" [src]="'../../../../../assets/Image/male.png'" alt="Avatar" />
-            </td>
-            <td>
-                <p class="gbold text-sm">{{item?.name}}</p>
-                <p class="gmedium text-xs">{{item?.email}}</p>
-            </td>
-            <td>{{item?.subPlan}}</td>
-            <td>{{item?.subDate}}</td>
-            <td>{{item?.expDate}}</td>
-            <td>{{item?.price}}</td>
-            <td class=" gbold" [ngClass]="{'text-red-500': item?.status!==true,'text-green-500':item?.status ===true}">
-                {{item?.status !== true ? 'Inactive' : 'Active'}}
-            </td>
-        </tr>
+    <div class="overflow-x-auto w-full">
+        <table class="subs-history-table">
+            <thead>
+                <th class="table-radio-td"></th>
+                <th>Name & Email Address</th>
+                <th>Subscription Plan</th>
+                <th>Subscription Date</th>
+                <th>Expiry Date</th>
+                <th>Price</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr  *ngFor="let item of subscriptionHistoryDisplay;let i=index">
+                    <td class="table-radio-td">
+                        <img class="rounded-full w-10 min-w-[40px] h-10 mr-2" [src]="'../../../../../assets/Image/male.png'" alt="Avatar" />
+                    </td>
+                    <td>
+                        <p class="gbold text-sm">{{item?.name}}</p>
+                        <p class="gmedium text-xs">{{item?.email}}</p>
+                    </td>
+                    <td>{{item?.subPlan}}</td>
+                    <td>{{item?.subDate}}</td>
+                    <td>{{item?.expDate}}</td>
+                    <td>{{item?.price}}</td>
+                    <td class=" gbold" [ngClass]="{'text-red-500': item?.status!==true,'text-green-500':item?.status ===true}">
+                        {{item?.status !== true ? 'Inactive' : 'Active'}}
+                    </td>
+                </tr>
+        
+            </tbody>
+            </table>
+    </div>
 
-    </tbody>
-    </table>
     
     
     

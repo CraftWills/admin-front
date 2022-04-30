@@ -22,4 +22,5 @@ export class SidebarComponent implements OnInit {
     localStorage.removeItem('user');
     this.router.navigate(['/']);
   }
+
 }

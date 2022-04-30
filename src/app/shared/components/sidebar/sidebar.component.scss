@@ -119,5 +119,27 @@ right: 1px;
         
       }
 }
-.bg-side{
+
+@media(max-width:767px){
+    .side-bar{
+        height: fit-content;
+        padding: 8px 0 8px 9px;
+        /* background: #f9e7ea; */
+        border-radius: 5px 0 0 5px;
+        p{
+            font-family: 'GilroySemi';
+            color: #979797;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        i{
+    
+            color: #979797;
+            cursor: pointer;
+        }
+        img{
+            opacity: 0.5;
+        }
+    }
 }
+
