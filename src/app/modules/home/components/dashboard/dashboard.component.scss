@@ -37,3 +37,40 @@
          }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.upper {
+    width: 100%;
+    height: 300px;
+    border: 1px solid orange;
+    position: relative;
+    background-color: green;
+  }
+  
+  .half-circle {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    transform: translateX(-50%);
+    border-bottom: 1px solid orange;
+    border-left: 1px solid orange;
+    border-right: 1px solid orange;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: #fff;
+  }
